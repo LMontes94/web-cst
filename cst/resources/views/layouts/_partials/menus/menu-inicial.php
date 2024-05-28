@@ -6,43 +6,36 @@
                 <div class="cont-details">
                     <div class="d-flex contact-grid">
                         <div class="menu-title">
-                            <a href="">
-                                <h3>Conocenos</h4>
+                            <a href="inicial.php">
+                                <h3>Nivel Inicial</h3>
                             </a>
                         </div>
                     </div>
                     <div class="d-flex contact-grid mt-4 pt-lg-4">
                         <div class="menu-options">
-                            <a href="{{route('history')}}">
-                                <h4>Historia</h4>
+                            <a href="historia.php">
+                                <h4>Las Ciencias Naturales en Nivel Inicial</h4>
                             </a>
                         </div>
                     </div>
                     <div class="d-flex contact-grid mt-4 pt-lg-4">
                         <div class="menu-options">
-                            <a href="{{route('general-letter')}}">
-                                <h4>Carta de la Directora General</h4>
+                            <a href="general-letter.php">
+                                <h4>La Educación Física en Nivel Inicial</h4>
                             </a>
                         </div>
                     </div>
                     <div class="d-flex contact-grid mt-4 pt-lg-4">
                         <div class="menu-options">
-                            <a href="{{route('definition')}}">
-                                <h4>Definición Institucional</h4>
+                            <a href="definition.php">
+                                <h4>Música</h4>
                             </a>
                         </div>
                     </div>
                     <div class="d-flex contact-grid mt-4 pt-lg-4">
                         <div class="menu-options">
-                            <a href="{{route('commitment')}}">
-                                <h4>Decálogo de Compromiso del Equipo de Conducción</h4>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="d-flex contact-grid mt-4 pt-lg-4">
-                        <div class="menu-options">
-                            <a href="">
-                                <h4>Instalaciones</h4>
+                            <a href="commitment.php">
+                                <h4>Inglés en el Nivel Inicial</h4>
                             </a>
                         </div>
                     </div>

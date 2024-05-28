@@ -28,7 +28,7 @@
                             Propuesta Educativa
                         </a>
                         <div class="dropdown-menu" aria-labelledby="propuestaDropdown">
-                            <a class="dropdown-item" href="levels.php">Nuestros Niveles</a>
+                            <a class="dropdown-item" href="{{route('levels')}}">Nuestros Niveles</a>
                             <a class="dropdown-item" href="courses.php">Proyecto Educativo</a>
                             <a class="dropdown-item" href="#">Pastoral</a>
                             <a class="dropdown-item" href="ingles.php">Inglés</a>

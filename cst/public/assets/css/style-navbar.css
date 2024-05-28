@@ -2,50 +2,51 @@
 .navbar-expand-lg .navbar-nav .nav-link:hover,
 .nav-fixed .navbar-expand-lg .navbar-nav .nav-link.active,
 .navbar-expand-lg .navbar-nav .nav-link.active {
-  color: #21814f;
+    color: #21814f;
 }
 
 .navbar-brand img {
-  height: auto;
-  width: 75px;
+    height: auto;
+    width: 75px;
+    padding-bottom: 5px;
 }
 
 .banner-content h3,
 .banner-content p {
-  width: 100%;
+    width: 100%;
 }
 
 .title h3 {
-  font-size: 3.8rem;
+    font-size: 3.8rem;
 }
 
 .title p {
-  text-align: center;
+    text-align: center;
 }
 
 .btn-style {
-  background-color: #214c7f;
+    background-color: #214c7f;
 }
 
 .btn-style img {
-  height: auto;
-  width: 1.8rem;
-  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%)
-    contrast(100%);
+    height: auto;
+    width: 1.8rem;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg)
+        brightness(100%) contrast(100%);
 }
 
 .ig {
-  padding: 10px 8px 12px;
-  border-radius: var(--border-radius-full);
-  background: #214c7f;
-  transition: all 1.8s ease-in-out;
+    padding: 10px 8px 12px;
+    border-radius: var(--border-radius-full);
+    background: #214c7f;
+    transition: all 1.8s ease-in-out;
 }
 
 .subtitle {
-  padding: 8px;
+    padding: 8px;
 }
 
 .img-banner img {
-  width: 250px;
-  height: 115px;
+    width: 250px;
+    height: 115px;
 }

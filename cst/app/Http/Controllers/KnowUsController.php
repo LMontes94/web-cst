@@ -6,16 +6,24 @@ use Illuminate\Http\Request;
 
 class KnowUsController extends Controller
 {
-    public function staff(){
+    public function staff()
+    {
         return view('knowUs.staff');
     }
-    public function generalLetter(){
+    public function generalLetter()
+    {
         return view('knowUs.general-letter');
     }
-    public function definition(){
+    public function definition()
+    {
         return view('knowUs.definition');
     }
-    public function history(){
+    public function history()
+    {
         return view('knowUs.historia');
+    }
+    public function commitment()
+    {
+        return view('knowUs.commitment');
     }
 }

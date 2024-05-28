@@ -71,16 +71,16 @@ Author URL: http://w3layouts.com12
                     <div class="grids5-info position-relative">
                         <img src="assets/images/c1.jpg" alt="" class="img-fluid" />
                         <div class="meta-list">
-                            <a href="courses.html">Inicial</a>
+                            <a href="{{route('inicial')}}">Inicial</a>
                         </div>
                     </div>
                     <div class="content-main-top">
-                        <h4><a href="courses.html">Nivel Inicial</a></h4>
+                        <h4><a href="{{route('inicial')}}">Nivel Inicial</a></h4>
                         <p>La infancia se construye en tiempos pequeños y es el momento de los aprendizajes más
                             significativos.</p>
                         <div class="top-content-border d-flex align-items-center justify-content-between mt-4 pt-4">
                             <h6></h6>
-                            <a class="btn btn-style-primary" href="courses.html">Leer Más<i class="fas fa-arrow-right"></i></a>
+                            <a class="btn btn-style-primary" href="{{route('inicial')}}">Leer Más<i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -90,16 +90,16 @@ Author URL: http://w3layouts.com12
                     <div class="grids5-info position-relative">
                         <img src="assets/images/c2.jpg" alt="" class="img-fluid" />
                         <div class="meta-list">
-                            <a href="courses.html" class="sec-2">Primaria</a>
+                            <a href="{{route('primaria')}}" class="sec-2">Primaria</a>
                         </div>
                     </div>
                     <div class="content-main-top">
-                        <h4><a href="courses.html">Nivel Primario</a></h4>
+                        <h4><a href="{{route('primaria')}}">Nivel Primario</a></h4>
                         <p>Nuestra propuesta apunta al desarrollo integral de los alumnos para que puedan lograr
                             confianza y autonomía.</p>
                         <div class="top-content-border d-flex align-items-center justify-content-between mt-4 pt-4">
                             <h6></h6>
-                            <a class="btn btn-style-primary" href="courses.html">Leer Más<i class="fas fa-arrow-right"></i></a>
+                            <a class="btn btn-style-primary" href="{{route('primaria')}}">Leer Más<i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -109,16 +109,16 @@ Author URL: http://w3layouts.com12
                     <div class="grids5-info position-relative">
                         <img src="assets/images/c3.jpg" alt="" class="img-fluid" />
                         <div class="meta-list">
-                            <a href="courses.html" class="sec-3">Secundaria</a>
+                            <a href="{{route('secundaria')}}" class="sec-3">Secundaria</a>
                         </div>
                     </div>
                     <div class="content-main-top">
-                        <h4><a href="courses.html">Nivel Secundario</a></h4>
+                        <h4><a href="{{route('secundaria')}}">Nivel Secundario</a></h4>
                         <p>Buscamos fomentar en nuestros alumnos el pensamiento y la reflexión, el espíritu de
                             trabajo y el deseo de saber.</p>
                         <div class="top-content-border d-flex align-items-center justify-content-between mt-4 pt-4">
                             <h6></h6>
-                            <a class="btn btn-style-primary" href="courses.html">Leer Más<i class="fas fa-arrow-right"></i></a>
+                            <a class="btn btn-style-primary" href="{{route('secundaria')}}">Leer Más<i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
