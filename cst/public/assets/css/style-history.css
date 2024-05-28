@@ -1,0 +1,26 @@
+.historia-lista li {
+  margin-top: 12px;
+}
+
+.image-one {
+  position: relative;
+  overflow: hidden;
+  width: 100%; /* Ajusta el tamaño del contenedor según sea necesario */
+  max-width: 300px; /* Establece el ancho máximo para las imágenes */
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+
+.image-one img {
+  width: auto;
+  height: auto;
+  max-width: 100%; /* Ajusta la imagen al ancho máximo del contenedor */
+  max-height: 100%; /* Ajusta la imagen al alto máximo del contenedor */
+  transition: transform 0.3s ease-in-out;
+  object-fit: cover; /* Hace que las imágenes se ajusten dentro de su contenedor manteniendo su relación de aspecto */
+}
+
+.image-one:hover img {
+  transform: scale(1.1);
+}

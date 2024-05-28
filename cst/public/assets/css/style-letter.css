@@ -1,0 +1,17 @@
+.image-one,
+h4,
+h5,
+h6,
+ul.points li,
+p {
+  margin-bottom: 20px;
+}
+
+ul.points li {
+  list-style-type: disc;
+  margin-left: 35px;
+}
+
+.album-videos-embebidos {
+  border-radius: 5px;
+}

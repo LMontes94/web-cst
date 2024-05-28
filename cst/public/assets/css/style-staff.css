@@ -1,0 +1,39 @@
+.title-page {
+  margin: 20px;
+}
+
+.menu-principal {
+  color: var(--heading-color);
+  /* background-color: #214c7f;*/
+  border-radius: 8px;
+}
+
+.menu-title {
+  color: var(--heading-color);
+}
+
+/* Estilos para el efecto de hover en menu-options */
+.menu-options:hover h4 {
+  color: #21814f; /* Cambia el color del texto al pasar el mouse sobre el elemento */
+}
+
+/* Estilos adicionales para los enlaces dentro de menu-options */
+.menu-options a {
+  text-decoration: none; /* Quita el subrayado predeterminado */
+  color: #333; /* Color del texto */
+}
+
+.image-one h6 {
+  margin-top: 20px;
+}
+
+/* Estilos para el efecto de hover en los enlaces dentro de la lista */
+.list-style-lis h5:hover {
+  color: #21814f; /* Cambia el color del texto al pasar el mouse sobre el enlace */
+}
+
+/* Estilos adicionales para los enlaces */
+.list-style-lis a {
+  text-decoration: none; /* Quita el subrayado predeterminado */
+  color: #333; /* Color del texto */
+}
