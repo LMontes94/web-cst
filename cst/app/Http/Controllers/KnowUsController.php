@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Directivo;
 use Illuminate\Http\Request;
 
 class KnowUsController extends Controller
 {
     public function staff()
     {
-        return view('knowUs.staff');
+        $directivos = Directivo::all();
+        return view('knowUs.staff', compact('directivos'));
     }
     public function generalLetter()
     {
-        return view('knowUs.general-letter');
+        $directoraGral = Directivo::findOrFail(2);
+        return view('knowUs.general-letter', compact('directoraGral'));
     }
     public function definition()
     {
