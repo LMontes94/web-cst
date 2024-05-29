@@ -19,7 +19,7 @@ Author URL: http://w3layouts.com12
         </div>
         <div class="row align-items-center pt-sm-5 pt-4">
             <div class="col-md-11 text-md-end">
-                <a href="https://www.instagram.com/colegiostateresita/" class="btn ig btn-style" target="_blank"><img src="./images/instagram.png" alt="ig-icon"></a>
+                <a href="https://www.instagram.com/colegiostateresita/" class="btn ig btn-style" target="_blank"><img src="{{asset('assets/img/instagram.png')}}" alt="ig-icon"></a>
                 <a href="https://web.handing.co/pre-login" class="btn btn-style" target="_blank">Handing</a>
             </div>
         </div>
