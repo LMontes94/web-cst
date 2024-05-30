@@ -1,0 +1,54 @@
+/* call block */
+.w3l-call-to-action-6 {
+    background: var(--gradient-color);
+}
+
+h3.title-big {
+    font-weight: 800;
+    font-size: 30px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.w3l-call-to-action-6 .buttons li {
+    list-style: none;
+    display: inline-block;
+}
+
+.w3l-call-to-action-6 .buttons li.green {
+    margin: 0 20px;
+}
+
+.w3l-call-to-action-6 .buttons li.phone-sec a.call-style-w3 {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.w3l-call-to-action-6 .buttons li.phone-sec a.call-style-w3:hover {
+    color: #222;
+}
+
+.buttons li.phone-sec i {
+    font-size: 38px;
+    color: #fff;
+    transform: rotate(-26deg);
+}
+
+@media (max-width: 992px) {
+    .w3l-call-to-action-6 .buttons li {
+        display: block;
+    }
+}
+
+@media (max-width: 567px) {
+    .w3l-call-to-action-6 .buttons li.phone-sec a.call-style-w3 {
+        font-size: 18px;
+    }
+
+    li.phone-sec span {
+        font-size: 28px;
+    }
+}
+
+/* //call block */

@@ -1,0 +1,125 @@
+/* courses section */
+.home-course-bg {
+    background: var(--bg-grey);
+}
+
+.top-content-border h6 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.w3l-grids-block-6 {
+    background: var(--bg-color);
+}
+
+.w3l-grids-block-5 .content-main-top h4 a {
+    color: var(--heading-color);
+    font-size: 22px;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 600;
+    line-height: 32px;
+}
+
+.w3l-grids-block-5 .content-main-top h4 a:hover {
+    color: var(--primary-color);
+}
+
+.w3l-grids-block-5 .coursecard-single {
+    box-shadow: 0px 30px 40px 0px rgb(1 11 60 / 10%);
+    transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    background: var(--bg-color);
+    border-radius: var(--border-radius);
+}
+
+.w3l-grids-block-5 .grids5-info {
+    overflow: hidden;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.w3l-grids-block-5 .grids5-info img {
+    display: block;
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    transition: 0.3s ease-in-out;
+}
+
+.w3l-grids-block-5 .coursecard-single:hover img {
+    overflow: hidden;
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+}
+
+.w3l-grids-block-5 .content-main-top {
+    padding: 20px;
+    border: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+ul.rating-list li {
+    display: inline-block;
+}
+
+ul.rating-list li a {
+    color: #ffc949;
+    font-size: 15px;
+}
+
+ul.rating-list li a.review-color {
+    color: var(--heading-color);
+}
+
+.meta-list {
+    position: absolute;
+    left: 30px;
+    top: 15px;
+}
+
+.meta-list a {
+    background: #1dc295;
+    display: inline-block;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    color: #ffffff !important;
+    text-transform: capitalize;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.meta-list a.sec-2 {
+    background-color: #ffa100;
+}
+
+.meta-list a.sec-3 {
+    background: #037ef3;
+}
+
+.course-price-item {
+    position: absolute;
+    right: 25px;
+    bottom: -15px;
+}
+
+.content-top li {
+    color: var(--heading-color);
+}
+
+.content-top li i.fa-book-open {
+    color: var(--secondary-color);
+}
+
+.content-top li i.fa-star {
+    color: var(--primary-color);
+}
+
+.top-content-border {
+    border-top: 1px solid var(--border-color-light);
+}
+
+/* //courses section */
