@@ -13,8 +13,10 @@
                  </div>
                  <div class="col-lg-5 col-md-3 col-6 ps-lg-5 ps-lg-4 footer-list-29 mt-md-0 mt-4">
                      <ul>
-                         <li><a href="https://www.cam.ac.uk/ " target="_blank"><img src="./images/escudo-cambridge.png" alt="escudo-cambridge"></a></li>
-                         <li><a href="https://essarp.org.ar/?lang=es%2F" target="_blank"><img src="./images/essarp.png" alt="essarp"></a></li>
+                         <li><a href="https://www.cam.ac.uk/ " target="_blank">
+                                 <img src="{{asset('assets/img/escudo/escudo-cambridge.png')}}" alt="escudo-cambridge"></a></li>
+                         <li><a href="https://essarp.org.ar/?lang=es%2F" target="_blank">
+                                 <img src="{{asset('assets/img/escudo/essarp.png')}}" alt="essarp"></a></li>
                      </ul>
                  </div>
                  <div class="col-lg-3 col-md-3 col-6 footer-list-29 mt-md-0 mt-4">
