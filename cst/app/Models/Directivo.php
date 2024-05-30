@@ -9,5 +9,10 @@ class Directivo extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'nombre',
+        'apellido',
+        'cargo',
+        'url_imagen',
+    ];
 }
