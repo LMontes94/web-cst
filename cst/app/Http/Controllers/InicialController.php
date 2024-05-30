@@ -11,4 +11,25 @@ class InicialController extends Controller
     {
         return view('educationalProposal.ourLevels.inicial.inicial');
     }
+    public function science()
+    {
+        return view('educationalProposal.ourLevels.inicial.science');
+    }
+    public function physicalEducation()
+    {
+        return view('educationalProposal.ourLevels.inicial.science');
+    }
+    public function music()
+    {
+        return view('educationalProposal.ourLevels.inicial.music');
+    }
+    public function english()
+    {
+        return view('educationalProposal.ourLevels.inicial.english');
+    }
+    public function document()
+    {
+        return view('educationalProposal.ourLevels.inicial.document');
+    }
+    
 }

@@ -13,29 +13,43 @@
                     </div>
                     <div class="d-flex contact-grid mt-4 pt-lg-4">
                         <div class="menu-options">
-                            <a href="historia.php">
+                            <a href="{{route('inicial-science')}}">
                                 <h4>Las Ciencias Naturales en Nivel Inicial</h4>
                             </a>
                         </div>
                     </div>
                     <div class="d-flex contact-grid mt-4 pt-lg-4">
                         <div class="menu-options">
-                            <a href="general-letter.php">
+                            <a href="{{route('inicial-physical')}}">
                                 <h4>La Educación Física en Nivel Inicial</h4>
                             </a>
                         </div>
                     </div>
                     <div class="d-flex contact-grid mt-4 pt-lg-4">
                         <div class="menu-options">
-                            <a href="definition.php">
+                            <a href="{{route('inicial-music')}}">
                                 <h4>Música</h4>
                             </a>
                         </div>
                     </div>
                     <div class="d-flex contact-grid mt-4 pt-lg-4">
                         <div class="menu-options">
-                            <a href="commitment.php">
+                            <a href="{{route('inicial-english')}}">
                                 <h4>Inglés en el Nivel Inicial</h4>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="d-flex contact-grid mt-4 pt-lg-4">
+                        <div class="menu-options">
+                            <a href="{{route('inicial-document')}}">
+                                <h4>Documentos</h4>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="d-flex contact-grid mt-4 pt-lg-4">
+                        <div class="menu-options">
+                            <a href="commitment.php">
+                                <h4>Actividades</h4>
                             </a>
                         </div>
                     </div>
