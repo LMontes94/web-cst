@@ -6,28 +6,28 @@
                 <div class="cont-details">
                     <div class="d-flex contact-grid">
                         <div class="menu-title">
-                            <a href="primario.php">
+                            <a href="{{route('primaria')}}">
                                 <h3>Nivel Primario</h3>
                             </a>
                         </div>
                     </div>
                     <div class="d-flex contact-grid mt-4 pt-lg-4">
                         <div class="menu-options">
-                            <a href="historia.php">
+                            <a href="{{route('primaria-english')}}">
                                 <h4>Inglés EP</h4>
                             </a>
                         </div>
                     </div>
                     <div class="d-flex contact-grid mt-4 pt-lg-4">
                         <div class="menu-options">
-                            <a href="general-letter.php">
+                            <a href="{{route('primaria-team')}}">
                                 <h4>Equipo de trabajo</h4>
                             </a>
                         </div>
                     </div>
                     <div class="d-flex contact-grid mt-4 pt-lg-4">
                         <div class="menu-options">
-                            <a href="general-letter.php">
+                            <a href="{{route('primaria-events')}}">
                                 <h4>Eventos, Muestras de trabajos y Salidas Pedagógicas</h4>
                             </a>
                         </div>

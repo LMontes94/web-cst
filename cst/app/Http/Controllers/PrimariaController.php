@@ -11,4 +11,16 @@ class PrimariaController extends Controller
     {
         return view('educationalProposal.ourLevels.primaria.primaria');
     }
+    public function team()
+    {
+        return view('educationalProposal.ourLevels.primaria.team');
+    }
+    public function english()
+    {
+        return view('educationalProposal.ourLevels.primaria.english');
+    }
+    public function event()
+    {
+        return view('educationalProposal.ourLevels.primaria.events');
+    }
 }

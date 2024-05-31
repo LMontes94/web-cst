@@ -29,4 +29,8 @@ Route::get('educational-proposal/our-levels/inicial/english', [InicialController
 Route::get('educational-proposal/our-levels/inicial/documents', [InicialController::class, 'document'])->name('inicial-document');
 
 Route::get('educational-proposal/our-levels/primaria', [PrimariaController::class, 'primaria'])->name('primaria');
+Route::get('educational-proposal/our-levels/primaria/team', [PrimariaController::class, 'team'])->name('primaria-team');
+Route::get('educational-proposal/our-levels/primaria/english', [PrimariaController::class, 'english'])->name('primaria-english');
+Route::get('educational-proposal/our-levels/primaria/events', [PrimariaController::class, 'event'])->name('primaria-events');
+
 Route::get('educational-proposal/our-levels/secundaria', [SecundariaController::class, 'secundaria'])->name('secundaria');
