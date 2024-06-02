@@ -11,4 +11,12 @@ class EducationalProposalController extends Controller
     {
         return view('educationalProposal.ourLevels.levels');
     }
+    public function english()
+    {
+        return view('educationalProposal.english');
+    }
+    public function ateneo()
+    {
+        return view('educationalProposal.ateneo');
+    }
 }

@@ -15,3 +15,37 @@ ul.points li {
 .album-videos-embebidos {
   border-radius: 5px;
 }
+.table-header h4,
+.table-header {
+  font-weight: bold;
+  background-color: #343a40;
+  color: white;
+}
+.table-row {
+  border-bottom: 1px solid #dee2e6;
+}
+.table-row ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.table-row ul li {
+  text-align: center;
+}
+
+.album-videos-embebidos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta la altura según sea necesario */
+}
+.album-videos-embebidos iframe {
+  max-width: 100%;
+  width: 640px;
+  height: 360px;
+}
+@media (max-width: 767px) {
+  .album-videos-embebidos iframe {
+    width: 100%;
+    height: auto;
+  }
+}

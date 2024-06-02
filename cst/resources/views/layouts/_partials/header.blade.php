@@ -31,8 +31,8 @@
                             <a class="dropdown-item" href="{{route('levels')}}">Nuestros Niveles</a>
                             <a class="dropdown-item" href="courses.php">Proyecto Educativo</a>
                             <a class="dropdown-item" href="#">Pastoral</a>
-                            <a class="dropdown-item" href="ingles.php">Inglés</a>
-                            <a class="dropdown-item" href="about.php">Ateneo</a>
+                            <a class="dropdown-item" href="{{route('english')}}">Inglés</a>
+                            <a class="dropdown-item" href="{{route('ateneo')}}">Ateneo</a>
                         </div>
                     </li>
                     <li class="nav-item">
