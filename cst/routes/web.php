@@ -45,3 +45,13 @@ Route::get('educational-proposal/our-levels/secundaria/physical-ed', [Secundaria
 Route::get('educational-proposal/our-levels/secundaria/english', [SecundariaController::class, 'english'])->name('secundaria-english');
 Route::get('educational-proposal/our-levels/secundaria/document', [SecundariaController::class, 'document'])->name('secundaria-document');
 Route::get('educational-proposal/our-levels/secundaria/regulations', [SecundariaController::class, 'regulation'])->name('secundaria-regulation');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
