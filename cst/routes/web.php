@@ -54,5 +54,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/ejemplo', [MainController::class, 'ejemplo'])->name('ejemplo');
 });
-Route::get('/ejemplo', [MainController::class, 'ejemplo'])->name('ejemplo');
+
