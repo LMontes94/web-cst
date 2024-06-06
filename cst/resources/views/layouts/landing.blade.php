@@ -9,6 +9,7 @@
     <link rel="icon" href="{{asset('assets/img/escudo/Escudo-CST-sinFondo.ico')}}" type="image/x-icon">
     <!-- Google fonts -->
     <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Template CSS Style link -->
     <link rel="stylesheet" href="{{ asset('assets/css/style-starter.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/style-navbar.css')}}">
