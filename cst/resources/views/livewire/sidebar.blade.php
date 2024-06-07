@@ -1,4 +1,5 @@
-<!-- resources/views/components/sidebar.blade.php -->
+<div>
+    <!-- resources/views/components/sidebar.blade.php -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
@@ -28,10 +29,6 @@
         <div id="collapseUsers" class="collapse {{ request()->is('usuarios*') ? 'show' : '' }}" aria-labelledby="headingUsers" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Opciones:</h6>
-                @foreach($userTypes as $userType)
-                <a class="collapse-item {{ request()->is('usuarios/'.$userType->id) ? 'active' : '' }}" href="{{ route('usuarios.index', $userType->id) }}">{{ $userType->name }}</a>
-                @endforeach
-                <a class="collapse-item {{ request()->is('usuario/create') ? 'active' : '' }}" href="{{ route('usuarios.create') }}">Crear</a>
             </div>
         </div>
     </li>
@@ -43,3 +40,4 @@
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 </ul>
+</div>
