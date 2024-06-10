@@ -21,9 +21,7 @@
     @yield('content')
     @include('layouts._partials.footer')
 
-    <button onclick="topFunction()" id="movetop" title="Go to top">
-        <span class="fas fa-level-up-alt" aria-hidden="true"></span>
-    </button>
+    @include('_components.button-top')
 
     <!-- Js scripts -->
     <script src="{{asset('assets/js/jquery-3.3.1.min.js')}}"></script>
