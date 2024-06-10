@@ -15,7 +15,4 @@ class MainController extends Controller
     public function admission(){
         return view('admission');
     }
-    public function ejemplo(){
-        return view('ejemplo');
-    }
 }

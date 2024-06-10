@@ -1,0 +1,17 @@
+.bg-custom {
+    background-color: #214c7f; /* Color de fondo personalizado */
+    border-radius: 5px;
+}
+
+.menu-title{
+    padding-top: 13px;
+    
+}
+.menu-title h3{
+    color: #ffffff;
+}
+
+.bg-col-right{
+    background-color:#D4DCE9;
+    border-radius: 5px;
+}

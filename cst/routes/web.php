@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EducationalProposalController;
 use App\Http\Controllers\InicialController;
 use App\Http\Controllers\KnowUsController;
@@ -51,9 +52,8 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-    Route::get('/ejemplo', [MainController::class, 'ejemplo'])->name('ejemplo');
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('dashboard/ejemplo', [DashboardController::class, 'ejemplo'])->name('ejemplo');
+    Route::get('dashboard/abms', [DashboardController::class, 'abms'])->name('abms');
 });
 
