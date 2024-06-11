@@ -11,7 +11,7 @@
     
     <div class="container py-md-5 py-4">
         <div class="row">
-            @livewire('sidebar')
+            <livewire:sidebar :menuTitle="'ABMs'" :dropdowns="$dropdowns" />
             <div class="content-wrapper max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="container-fluid">

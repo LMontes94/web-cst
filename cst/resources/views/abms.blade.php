@@ -41,6 +41,15 @@ $dropdowns = [
             ['label' => 'Crear', 'link' => '#']
         ]
     ],
+    [
+        'title' => 'Tipos y Roles',
+        'icon' => '',
+        'items' => [
+            ['label' => 'Tipos de usuarios', 'link' => '#'],
+            ['label' => 'Tipo de posts', 'link' => '#'],
+            ['label' => 'Cargos', 'link' => '#']
+        ]
+    ],
 ];
 @endphp
 
