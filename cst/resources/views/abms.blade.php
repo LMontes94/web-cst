@@ -4,9 +4,8 @@ $dropdowns = [
         'title' => 'Usuarios',
         'icon' => 'fa-solid fa-user',
         'items' => [
-            ['label' => 'Administradores', 'link' => '#'],
-            ['label' => 'Publicadores', 'link' => '#'],
-            ['label' => 'Crear', 'link' => '#']
+            ['label' => 'Listado completo ', 'link' => route('users.index')],
+            ['label' => 'Crear', 'link' => route('users.create')]
         ]
     ],
     [

@@ -1,6 +1,6 @@
 <x-app-layout>
     @section('styles')
-        <link rel="stylesheet" href="{{ asset('assets/css/sidebar.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/component/sidebar.css') }}">
     @endsection
   
     <x-slot name="header">
