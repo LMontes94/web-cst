@@ -61,8 +61,8 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::all();
-        $dropdowns = $this->dropdowns; 
-        return view('users.index',compact('users','dropdowns'));
+        $dropdowns = $this->dropdowns;
+        return view('users.index', compact('users', 'dropdowns'));
     }
 
     /**
@@ -81,7 +81,7 @@ class UsersController extends Controller
     {
         $user = User::create($request->validated());
         $dropdowns = $this->dropdowns;
-        return redirect()->route('users.index',compact('user','dropdowns'));
+        return redirect()->route('users.index', compact('user', 'dropdowns'));
     }
 
     /**
@@ -90,7 +90,7 @@ class UsersController extends Controller
     public function show(User $user)
     {
         $dropdowns = $this->dropdowns;
-        return view('users.show', compact('user','dropdowns'));
+        return view('users.show', compact('user', 'dropdowns'));
     }
 
     /**
@@ -99,17 +99,27 @@ class UsersController extends Controller
     public function edit(User $user)
     {
         $dropdowns = $this->dropdowns;
-        return view('users.edit', compact('user','dropdowns'));
+        return view('users.edit', compact('user', 'dropdowns'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserRequest $request, User $user)
+    public function update(Request $request, User $user)
     {
-        $user->update($request->validated());
-        $dropdowns = $this->dropdowns;
-        return redirect()->route('users.index',compact('user','dropdowns'));
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'password' => 'nullable|string|min:6|confirmed',
+        ]);
+
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password ? bcrypt($request->password) : $user->password,
+        ]);
+
+        return redirect()->route('users.index')->with('success', 'User updated successfully.');
     }
 
     /**
@@ -119,6 +129,6 @@ class UsersController extends Controller
     {
         $user->delete();
         $dropdowns = $this->dropdowns;
-        return redirect()->route('users.index',compact('user','dropdowns'));
+        return redirect()->route('users.index', compact('user', 'dropdowns'));
     }
 }

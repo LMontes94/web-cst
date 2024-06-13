@@ -7,7 +7,6 @@ use App\Http\Controllers\KnowUsController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PrimariaController;
 use App\Http\Controllers\SecundariaController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -58,7 +57,5 @@ Route::middleware([
     Route::get('dashboard/ejemplo', [DashboardController::class, 'ejemplo'])->name('ejemplo');
     Route::get('dashboard/abms', [DashboardController::class, 'abms'])->name('abms');
 
-    Route::resource('/users',UsersController::class);
-
+    Route::resource('/users', UsersController::class);
 });
-

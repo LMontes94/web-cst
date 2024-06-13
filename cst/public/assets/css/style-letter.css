@@ -4,48 +4,47 @@ h5,
 h6,
 ul.points li,
 p {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 ul.points li {
-  list-style-type: disc;
-  margin-left: 35px;
+    list-style-type: disc;
+    margin-left: 35px;
 }
 
 .album-videos-embebidos {
-  border-radius: 5px;
+    border-radius: 5px;
 }
 .table-header h4,
 .table-header {
-  font-weight: bold;
-  background-color: #343a40;
-  color: white;
+    font-weight: bold;
+    background-color: #343a40;
+    color: white;
 }
 .table-row {
-  border-bottom: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
 }
 .table-row ul {
-  list-style-type: none;
-  padding-left: 0;
+    list-style-type: none;
+    padding-left: 0;
 }
 .table-row ul li {
-  text-align: center;
+    text-align: center;
 }
 
 .album-videos-embebidos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Ajusta la altura según sea necesario */
+    height: 100vh; /* Ajusta la altura según sea necesario */
 }
 .album-videos-embebidos iframe {
-  max-width: 100%;
-  width: 640px;
-  height: 360px;
+    margin-top: 10px;
+    max-width: 100%;
+    width: 640px;
+    height: 360px;
 }
+
 @media (max-width: 767px) {
-  .album-videos-embebidos iframe {
-    width: 100%;
-    height: auto;
-  }
+    .album-videos-embebidos iframe {
+        width: 100%;
+        height: auto;
+    }
 }
