@@ -5,8 +5,11 @@ use App\Http\Controllers\EducationalProposalController;
 use App\Http\Controllers\InicialController;
 use App\Http\Controllers\KnowUsController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\PostsTypeController;
 use App\Http\Controllers\PrimariaController;
 use App\Http\Controllers\SecundariaController;
+use App\Http\Controllers\StaffController;
+use App\Http\Controllers\StaffPositionController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\UserTypeController;
 use Illuminate\Support\Facades\Route;
@@ -60,6 +63,9 @@ Route::middleware([
 
     Route::resource('/users', UsersController::class);
 
+    Route::resource('staff', StaffController::class);
+    Route::resource('staff_positions', StaffPositionController::class);
+
     Route::resource('/user-type', UserTypeController::class)->names([
         'index' => 'userType.index',
         'create' => 'userType.create',
@@ -68,5 +74,15 @@ Route::middleware([
         'edit' => 'userType.edit',
         'update' => 'userType.update',
         'destroy' => 'userType.destroy'
+    ]);
+
+    Route::resource('/post-type', PostsTypeController::class)->names([
+        'index' => 'postType.index',
+        'create' => 'postType.create',
+        'store' => 'postType.store',
+        'show' => 'postType.show',
+        'edit' => 'postType.edit',
+        'update' => 'postType.update',
+        'destroy' => 'postType.destroy'
     ]);
 });

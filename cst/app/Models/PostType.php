@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PostType extends Model
 {
+    protected $table = 'posts_type';
     use HasFactory;
 
     protected $guarded = [];

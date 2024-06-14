@@ -4,75 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\User;
-use App\Models\UserType;
 use Illuminate\Http\Request;
+use App\Helpers\Dropdown;
 
 class UsersController extends Controller
 {
     public $dropdowns;
     public function __construct()
     {
-        $this->dropdowns = [
-            [
-                'title' => 'Usuarios',
-                'icon' => 'fa-solid fa-user',
-                'items' => [
-                    ['label' => 'Listado completo ', 'link' => route('users.index')],
-                    ['label' => 'Crear', 'link' => route('users.create')]
-                ]
-            ],
-            [
-                'title' => 'Personal',
-                'icon' => 'fa-solid fa-user',
-                'items' => [
-                    ['label' => 'Lista completa', 'link' => '#'],
-                    ['label' => 'Crear', 'link' => '#']
-                ]
-            ],
-            [
-                'title' => 'Secciones',
-                'icon' => 'fa-solid fa-layer-group',
-                'items' => [
-                    ['label' => 'Lista completa', 'link' => '#'],
-                    ['label' => 'Crear', 'link' => '#']
-                ]
-            ],
-            [
-                'title' => 'Departamentos',
-                'icon' => '',
-                'items' => [
-                    ['label' => 'Lista completa', 'link' => '#'],
-                    ['label' => 'Crear', 'link' => '#']
-                ]
-            ],
-            [
-                'title' => 'Posts',
-                'icon' => 'fa-solid fa-file-alt',
-                'items' => [
-                    ['label' => 'Lista completa', 'link' => '#'],
-                    ['label' => 'Crear', 'link' => '#']
-                ]
-            ],
-            [
-                'title' => 'Tipos y Roles',
-                'icon' => '',
-                'items' => [
-                    ['label' => 'Tipos de usuarios', 'link' => route('userType.index')],
-                    ['label' => 'Tipo de posts', 'link' => '#'],
-                    ['label' => 'Cargos', 'link' => '#']
-                ]
-            ],
-        ];
+        $this->dropdowns = Dropdown::getMenu();
     }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $userTypes = UserType::all();
         $users = User::all();
         $dropdowns = $this->dropdowns;
-        return view('users.index', compact('users', 'dropdowns','userTypes'));
+        return view('users.index', compact('users', 'dropdowns'));
     }
 
     /**
@@ -80,9 +29,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $userTypes = UserType::all();
         $dropdowns = $this->dropdowns;
-        return view('users.create', compact('dropdowns','userTypes'));
+        return view('users.create', compact('dropdowns'));
     }
 
     /**
@@ -100,9 +48,8 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        $userTypes = UserType::all();
         $dropdowns = $this->dropdowns;
-        return view('users.show', compact('user', 'dropdowns','userTypes'));
+        return view('users.show', compact('user', 'dropdowns'));
     }
 
     /**
@@ -110,9 +57,8 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        $userTypes = UserType::all();
         $dropdowns = $this->dropdowns;
-        return view('users.edit', compact('user', 'dropdowns','userTypes'));
+        return view('users.edit', compact('user', 'dropdowns'));
     }
 
     /**
@@ -123,12 +69,13 @@ class UsersController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
-            'user_type_id' => 'required|exists:user_types,id',
+            'password' => 'nullable|string|min:6|confirmed',
         ]);
+
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'user_type_id' => $request->user_type_id,
+            'password' => $request->password ? bcrypt($request->password) : $user->password,
         ]);
 
         return redirect()->route('users.index')->with('success', 'User updated successfully.');

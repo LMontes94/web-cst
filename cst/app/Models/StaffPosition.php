@@ -12,7 +12,7 @@ class StaffPosition extends Model
 
     protected $guarded = [];
 
-    public function staffs(): BelongsToMany
+    public function staff(): BelongsToMany
     {
         return $this->belongsToMany(Staff::class, 'staff_staff_position');
     }

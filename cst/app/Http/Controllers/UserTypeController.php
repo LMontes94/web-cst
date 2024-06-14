@@ -4,63 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\UserType;
 use Illuminate\Http\Request;
+use App\Helpers\Dropdown;
 
 class UserTypeController extends Controller
 {
     public $dropdowns;
     public function __construct()
     {
-        $this->dropdowns = [
-            [
-                'title' => 'Usuarios',
-                'icon' => 'fa-solid fa-user',
-                'items' => [
-                    ['label' => 'Listado completo ', 'link' => route('users.index')],
-                    ['label' => 'Crear', 'link' => route('users.create')]
-                ]
-            ],
-            [
-                'title' => 'Personal',
-                'icon' => 'fa-solid fa-user',
-                'items' => [
-                    ['label' => 'Lista completa', 'link' => '#'],
-                    ['label' => 'Crear', 'link' => '#']
-                ]
-            ],
-            [
-                'title' => 'Secciones',
-                'icon' => 'fa-solid fa-layer-group',
-                'items' => [
-                    ['label' => 'Lista completa', 'link' => '#'],
-                    ['label' => 'Crear', 'link' => '#']
-                ]
-            ],
-            [
-                'title' => 'Departamentos',
-                'icon' => '',
-                'items' => [
-                    ['label' => 'Lista completa', 'link' => '#'],
-                    ['label' => 'Crear', 'link' => '#']
-                ]
-            ],
-            [
-                'title' => 'Posts',
-                'icon' => 'fa-solid fa-file-alt',
-                'items' => [
-                    ['label' => 'Lista completa', 'link' => '#'],
-                    ['label' => 'Crear', 'link' => '#']
-                ]
-            ],
-            [
-                'title' => 'Tipos y Roles',
-                'icon' => '',
-                'items' => [
-                    ['label' => 'Tipos de usuarios', 'link' => route('userType.index')],
-                    ['label' => 'Tipo de posts', 'link' => '#'],
-                    ['label' => 'Cargos', 'link' => '#']
-                ]
-            ],
-        ];
+        $this->dropdowns = Dropdown::getMenu();
     }
 
     public function index()
@@ -81,13 +32,13 @@ class UserTypeController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
         ]);
-    
+
         $userType = new UserType([
             'name' => $request->name,
             'state' => 1, // Asignando el valor 1 a la propiedad state
         ]);
         $userType->save();
-    
+
         return redirect()->route('userType.index')->with('success', 'User Type created successfully.');
     }
 

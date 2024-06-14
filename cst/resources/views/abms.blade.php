@@ -1,61 +1,12 @@
 @php
-$dropdowns = [
-    [
-        'title' => 'Usuarios',
-        'icon' => 'fa-solid fa-user',
-        'items' => [
-            ['label' => 'Listado completo ', 'link' => route('users.index')],
-            ['label' => 'Crear', 'link' => route('users.create')]
-        ]
-    ],
-    [
-        'title' => 'Personal',
-        'icon' => 'fa-solid fa-user',
-        'items' => [
-            ['label' => 'Lista completa', 'link' => '#'],
-            ['label' => 'Crear', 'link' => '#']
-        ]
-    ],
-    [
-        'title' => 'Secciones',
-        'icon' => 'fa-solid fa-layer-group',
-        'items' => [
-            ['label' => 'Lista completa', 'link' => '#'],
-            ['label' => 'Crear', 'link' => '#']
-        ]
-    ],
-    [
-        'title' => 'Departamentos',
-        'icon' => '',
-        'items' => [
-            ['label' => 'Lista completa', 'link' => '#'],
-            ['label' => 'Crear', 'link' => '#']
-        ]
-    ],
-    [
-        'title' => 'Posts',
-        'icon' => 'fa-solid fa-file-alt',
-        'items' => [
-            ['label' => 'Lista completa', 'link' => '#'],
-            ['label' => 'Crear', 'link' => '#']
-        ]
-    ],
-    [
-        'title' => 'Tipos y Roles',
-        'icon' => '',
-        'items' => [
-            ['label' => 'Tipos de usuarios', 'link' => '#'],
-            ['label' => 'Tipo de posts', 'link' => '#'],
-            ['label' => 'Cargos', 'link' => '#']
-        ]
-    ],
-];
-@endphp
+use App\Helpers\Dropdown;
 
+$dropdowns = Dropdown::getMenu();
+@endphp
 <x-app-layout>
     @section('styles')
     <link rel="stylesheet" href="{{asset('assets/css/component/sidebar.css')}}">
-    @endsection  
+    @endsection
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Colegio Santa Teresita') }}
@@ -69,10 +20,10 @@ $dropdowns = [
                     <div class="container py-md-5 py-4">
                         <div class="mb-8">
                             <div class="flex items-center">
-                            <i class="fa-solid fa-users w-6 h-6 text-gray-400"></i>
-                            <h2 class="ms-3 text-xl font-semibold text-gray-900">
-                                <a href="">Usuarios</a>
-                            </h2>
+                                <i class="fa-solid fa-users w-6 h-6 text-gray-400"></i>
+                                <h2 class="ms-3 text-xl font-semibold text-gray-900">
+                                    <a href="">Usuarios</a>
+                                </h2>
                             </div>
                             <p class="mt-4 text-gray-500 text-sm leading-relaxed">
                                 En esta sección, puedes gestionar los usuarios del sistema, agregar nuevos usuarios, editar la información existente y asignar roles.
@@ -83,7 +34,7 @@ $dropdowns = [
                                     <i class="fa-solid fa-arrow-right ms-2 w-5 h-4 fill-indigo-500"></i>
                                 </a>
                             </p>
-                        </div>   
+                        </div>
 
                         <div class="my-12">
                             <div class="flex items-center">
@@ -91,53 +42,53 @@ $dropdowns = [
                                 <h2 class="ms-3 text-xl font-semibold text-gray-900">
                                     <a href="">Secciones</a>
                                 </h2>
+                            </div>
+                            <p class="mt-4 text-gray-500 text-sm leading-relaxed">
+                                En esta sección, puedes gestionar las diferentes secciones del sitio web, agregar nuevas secciones, editar las existentes y administrar su contenido.
+                            </p>
+                            <p class="mt-4 text-sm">
+                                <a href="" class="inline-flex items-center font-semibold text-indigo-700">
+                                    Ver detalles de las secciones
+                                    <i class="fa-solid fa-arrow-right ms-2 w-5 h-4 fill-indigo-500"></i>
+                                </a>
+                            </p>
                         </div>
-                        <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                            En esta sección, puedes gestionar las diferentes secciones del sitio web, agregar nuevas secciones, editar las existentes y administrar su contenido.
-                        </p>
-                        <p class="mt-4 text-sm">
-                            <a href="" class="inline-flex items-center font-semibold text-indigo-700">
-                                Ver detalles de las secciones
-                                <i class="fa-solid fa-arrow-right ms-2 w-5 h-4 fill-indigo-500"></i>
-                            </a>
-                        </p>
-                    </div>
-                    <div class="my-12">
-                        <div class="flex items-center">
-                            <i class="fa-solid fa-building w-6 h-6 text-gray-400"></i>
-                            <h2 class="ms-3 text-xl font-semibold text-gray-900">
-                                <a href="">Departamentos</a>
-                            </h2>
+                        <div class="my-12">
+                            <div class="flex items-center">
+                                <i class="fa-solid fa-building w-6 h-6 text-gray-400"></i>
+                                <h2 class="ms-3 text-xl font-semibold text-gray-900">
+                                    <a href="">Departamentos</a>
+                                </h2>
+                            </div>
+                            <p class="mt-4 text-gray-500 text-sm leading-relaxed">
+                                En esta sección, puedes gestionar los departamentos del sitio web, añadir nuevos departamentos, editar los existentes y supervisar su contenido.
+                            </p>
+                            <p class="mt-4 text-sm">
+                                <a href="" class="inline-flex items-center font-semibold text-indigo-700">
+                                    Ver detalles de los departamentos
+                                    <i class="fa-solid fa-arrow-right ms-2 w-5 h-4 fill-indigo-500"></i>
+                                </a>
+                            </p>
                         </div>
-                        <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                            En esta sección, puedes gestionar los departamentos del sitio web, añadir nuevos departamentos, editar los existentes y supervisar su contenido.
-                        </p>
-                        <p class="mt-4 text-sm">
-                        <a href="" class="inline-flex items-center font-semibold text-indigo-700">
-                            Ver detalles de los departamentos
-                            <i class="fa-solid fa-arrow-right ms-2 w-5 h-4 fill-indigo-500"></i>
-                        </a>
-                        </p>
+                        <div class="my-12">
+                            <div class="flex items-center">
+                                <i class="fa-solid fa-file-alt w-6 h-6 text-gray-400"></i>
+                                <h2 class="ms-3 text-xl font-semibold text-gray-900">
+                                    Tipos de Publicaciones
+                                </h2>
+                            </div>
+                            <p class="mt-4 text-gray-500 text-sm leading-relaxed">
+                                En esta sección, puedes gestionar los diferentes tipos de publicaciones del sitio web. Añadir nuevos tipos, editar los existentes.
+                            </p>
+                            <p class="mt-4 text-sm">
+                                <a href="" class="inline-flex items-center font-semibold text-indigo-700">
+                                    Crear un nuevo tipo de publicación
+                                    <i class="fa-solid fa-arrow-right ms-2 w-5 h-4 fill-indigo-500"></i>
+                                </a>
+                            </p>
+                        </div>
                     </div>
-                    <div class="my-12">
-                        <div class="flex items-center">
-                            <i class="fa-solid fa-file-alt w-6 h-6 text-gray-400"></i>
-                            <h2 class="ms-3 text-xl font-semibold text-gray-900">
-                                Tipos de Publicaciones
-                            </h2>
-                        </div>    
-                        <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                            En esta sección, puedes gestionar los diferentes tipos de publicaciones del sitio web. Añadir nuevos tipos, editar los existentes.
-                        </p>
-                        <p class="mt-4 text-sm">
-                            <a href="" class="inline-flex items-center font-semibold text-indigo-700">
-                                Crear un nuevo tipo de publicación
-                                <i class="fa-solid fa-arrow-right ms-2 w-5 h-4 fill-indigo-500"></i>
-                            </a>
-                        </p>
-                    </div>
-                </div>        
-            </section>
+                </section>
             </div>
         </div>
     </div>
