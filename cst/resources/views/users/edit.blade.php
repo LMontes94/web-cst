@@ -36,16 +36,15 @@
                                 </div>
 
                                 <div class="px-4 py-5 bg-white sm:p-6">
-                                    <label for="password" class="block font-medium text-sm text-gray-700">Password</label>
-                                    <input type="password" name="password" id="password" class="form-input rounded-md shadow-sm mt-1 block w-full" />
-                                    @error('password')
-                                    <p class="text-sm text-red-600">{{ $message }}</p>
+                                    <label for="user_type_id" class="block font-medium text-sm text-gray-700">User Type</label>
+                                    <select name="user_type_id" id="user_type_id" class="form-select rounded-md shadow-sm mt-1 block w-full">
+                                        @foreach ($userTypes as $type)
+                                            <option value="{{ $type->id }}" {{ $user->user_type_id == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('user_type_id')
+                                        <p class="text-sm text-red-600">{{ $message }}</p>
                                     @enderror
-                                </div>
-
-                                <div class="px-4 py-5 bg-white sm:p-6">
-                                    <label for="password_confirmation" class="block font-medium text-sm text-gray-700">Confirm Password</label>
-                                    <input id="password_confirmation" class="form-input rounded-md shadow-sm mt-1 block w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
                                 </div>
 
                                 <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">

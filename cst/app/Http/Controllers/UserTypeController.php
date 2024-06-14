@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserRequest;
-use App\Models\User;
 use App\Models\UserType;
 use Illuminate\Http\Request;
 
-class UsersController extends Controller
+class UserTypeController extends Controller
 {
     public $dropdowns;
     public function __construct()
@@ -64,83 +62,64 @@ class UsersController extends Controller
             ],
         ];
     }
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $userTypes = UserType::all();
-        $users = User::all();
         $dropdowns = $this->dropdowns;
-        return view('users.index', compact('users', 'dropdowns','userTypes'));
+        return view('user_types.index', compact('userTypes', 'dropdowns'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        $userTypes = UserType::all();
         $dropdowns = $this->dropdowns;
-        return view('users.create', compact('dropdowns','userTypes'));
+        return view('user_types.create', compact('dropdowns'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(UserRequest $request)
-    {
-        $user = User::create($request->validated());
-        $dropdowns = $this->dropdowns;
-        return redirect()->route('users.index', compact('user', 'dropdowns'));
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(User $user)
-    {
-        $userTypes = UserType::all();
-        $dropdowns = $this->dropdowns;
-        return view('users.show', compact('user', 'dropdowns','userTypes'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(User $user)
-    {
-        $userTypes = UserType::all();
-        $dropdowns = $this->dropdowns;
-        return view('users.edit', compact('user', 'dropdowns','userTypes'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, User $user)
+    public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
-            'user_type_id' => 'required|exists:user_types,id',
         ]);
-        $user->update([
+    
+        $userType = new UserType([
             'name' => $request->name,
-            'email' => $request->email,
-            'user_type_id' => $request->user_type_id,
+            'state' => 1, // Asignando el valor 1 a la propiedad state
         ]);
-
-        return redirect()->route('users.index')->with('success', 'User updated successfully.');
+        $userType->save();
+    
+        return redirect()->route('userType.index')->with('success', 'User Type created successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $user)
+    public function show(UserType $userType)
     {
-        $user->delete();
         $dropdowns = $this->dropdowns;
-        return redirect()->route('users.index', compact('user', 'dropdowns'));
+        return view('user_types.show', compact('userType', 'dropdowns'));
+    }
+
+    public function edit(UserType $userType)
+    {
+        $dropdowns = $this->dropdowns;
+        return view('user_types.edit', compact('userType', 'dropdowns'));
+    }
+
+    public function update(Request $request, UserType $userType)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $userType->update([
+            'name' => $request->name,
+        ]);
+
+        return redirect()->route('userType.index')->with('success', 'User Type updated successfully.');
+    }
+
+    public function destroy(UserType $userType)
+    {
+        $userType->delete();
+
+        return redirect()->route('userType.index')->with('success', 'User Type deleted successfully.');
     }
 }

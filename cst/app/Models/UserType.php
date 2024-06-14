@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class UserType extends Model
 {
-    protected $table = 'users_type';
+    protected $table = 'user_types';
     use HasFactory;
 
     protected $guarded = [];
