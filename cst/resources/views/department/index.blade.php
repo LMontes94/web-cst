@@ -11,10 +11,11 @@
         <div class="row">
             <livewire:sidebar :menuTitle="'ABMs'" :dropdowns="$dropdowns" />
             <div class="col-md-8">
-                <x-table-component :items="$positions" :headers="[ 
+                <x-table-component :items="$departments" :headers="[ 
                     ['name' => 'id', 'label' => 'ID'],
                     ['name' => 'name', 'label' => 'Name'],
-                    ]" routePrefix="staff_positions" />
+                    ['name' => 'name', 'label' => 'Section', 'relation' => 'section']                    
+                    ]" routePrefix="department" />
             </div>
         </div>
     </div>

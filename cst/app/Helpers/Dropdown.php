@@ -27,16 +27,16 @@ class Dropdown
                 'title' => 'Secciones',
                 'icon' => 'fa-solid fa-layer-group',
                 'items' => [
-                    ['label' => 'Lista completa', 'link' => '#'],
-                    ['label' => 'Crear', 'link' => '#'],
+                    ['label' => 'Lista completa', 'link' => route('sections.index')],
+                    ['label' => 'Crear', 'link' => route('sections.create')],
                 ]
             ],
             [
                 'title' => 'Departamentos',
                 'icon' => '',
                 'items' => [
-                    ['label' => 'Lista completa', 'link' => '#'],
-                    ['label' => 'Crear', 'link' => '#'],
+                    ['label' => 'Lista completa', 'link' => route('department.index')],
+                    ['label' => 'Crear', 'link' => route('department.create')],
                 ]
             ],
             [

@@ -11,10 +11,10 @@
         <div class="row">
             <livewire:sidebar :menuTitle="'ABMs'" :dropdowns="$dropdowns" />
             <div class="col-md-8">
-                <x-create-form-component :action="route('staff_positions.store')" :fields="[
+                <x-create-form-component :action="route('sections.store')" :fields="[
                     ['name' => 'name', 'label' => 'Name', 'type' => 'text']
                 ]" />
-            </div>    
+            </div>
         </div>
     </div>
 </x-app-layout>

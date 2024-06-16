@@ -50,6 +50,7 @@ class StaffPositionController extends Controller
 
     public function edit(StaffPosition $staffPosition)
     {
+        $dropdowns = $this->dropdowns;
         return view('staff_positions.edit', compact('staffPosition', 'dropdowns'));
     }
 

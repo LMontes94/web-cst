@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EducationalProposalController;
 use App\Http\Controllers\InicialController;
 use App\Http\Controllers\KnowUsController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PostsTypeController;
 use App\Http\Controllers\PrimariaController;
+use App\Http\Controllers\SectionController;
 use App\Http\Controllers\SecundariaController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StaffPositionController;
@@ -65,6 +67,9 @@ Route::middleware([
 
     Route::resource('staff', StaffController::class);
     Route::resource('staff_positions', StaffPositionController::class);
+
+    Route::resource('sections', SectionController::class);
+    Route::resource('department', DepartmentController::class);
 
     Route::resource('/user-type', UserTypeController::class)->names([
         'index' => 'userType.index',

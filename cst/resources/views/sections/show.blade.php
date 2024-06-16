@@ -15,15 +15,15 @@
             <div class="col-md-8">
                 <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
                     <div class="block mb-8">
-                        <a href="{{ route('postType.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Back to list</a>
+                        <a href="{{ route('sections.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Back to list</a>
                     </div>
-                    <x-show-details-component :model="$postType" :fields="[
+                    <x-show-details-component :model="$section" :fields="[
                         ['name' => 'id', 'label' => 'ID'],
                         ['name' => 'name', 'label' => 'Name'],
                         ['name' => 'state', 'label' => 'Estado'],
                     ]" />
                     <div class="block mt-8">
-                        <a href="{{ route('postType.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Back to list</a>
+                        <a href="{{ route('sections.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Back to list</a>
                     </div>
                 </div>
             </div>
