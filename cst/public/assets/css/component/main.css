@@ -1,0 +1,6 @@
+.custom-col {
+    /* Ancho máximo basado en el tamaño de la pantalla */
+    max-width: 100%; /* Puede ajustarse según tus necesidades */
+    /* Centrado del contenido */
+    margin: 0 auto;
+}

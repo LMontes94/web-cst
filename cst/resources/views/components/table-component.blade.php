@@ -1,4 +1,5 @@
-<div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
+<!-- resources/views/components/table-component.blade.php -->
+<div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
     <div class="block mb-8">
         <a href="{{ route($routePrefix . '.create') }}" class="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded">Add Item</a>
     </div>
@@ -10,9 +11,9 @@
                         <thead>
                             <tr>
                                 @foreach ($headers as $header)
-                                    <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        {{ $header['label'] }}
-                                    </th>
+                                <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    {{ $header['label'] }}
+                                </th>
                                 @endforeach
                                 <th class="px-6 py-3 bg-gray-50"></th> <!-- Empty header for action buttons -->
                             </tr>
@@ -21,24 +22,33 @@
                             @foreach ($items as $item)
                             <tr>
                                 @foreach ($headers as $header)
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                        @if (isset($header['relation']))
-                                            @php
-                                                $relations = explode('.', $header['relation']);
-                                                $value = $item;
-                                                foreach ($relations as $relation) {
-                                                    $value = $value->{$relation} ?? null;
-                                                    if (!$value) {
-                                                        break;
-                                                    }
-                                                }
-                                                $value = $value->{$header['name']} ?? 'N/A';
-                                            @endphp
-                                            {{ $value }}
-                                        @else
-                                            {{ $item->{$header['name']} }}
-                                        @endif
-                                    </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                    @if (isset($header['relation']))
+                                    @php
+                                    $relations = explode('.', $header['relation']);
+                                    $value = $item;
+                                    foreach ($relations as $relation) {
+                                    $value = $value->{$relation} ?? null;
+                                    if (is_null($value)) {
+                                    break;
+                                    }
+                                    }
+                                    @endphp
+                                    @if (is_iterable($value))
+                                    {{ $value->pluck('name')->join(', ') }}
+                                    @elseif (is_object($value))
+                                    {{ $value->name ?? 'N/A' }}
+                                    @else
+                                    {{ $value ?? 'N/A' }}
+                                    @endif
+                                    @elseif ($header['name'] === 'url_image' && $item->{$header['name']})
+                                    <a href="{{ asset('assets/img/' . $item->{$header['name']}) }}" target="_blank" class="flex items-center justify-center text-blue-600 hover:text-blue-900 mb-2 mr-2">
+                                        <i class="fa-solid fa-image"></i>
+                                    </a>
+                                    @else
+                                    {{ $item->{$header['name']} }}
+                                    @endif
+                                </td>
                                 @endforeach
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                     <a href="{{ route($routePrefix . '.show', $item->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">
@@ -56,7 +66,7 @@
                                     </form>
                                 </td>
                             </tr>
-                        @endforeach
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
