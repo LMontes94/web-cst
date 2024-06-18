@@ -1,6 +1,6 @@
 <div class="max-w-4xl mx-auto py-10 sm:px-6 lg:px-8">
     <div class="mt-5 md:mt-0 md:col-span-2">
-        <form method="post" action="{{ $action }}">
+        <form method="post" action="{{ $action }}" enctype="multipart/form-data">
             @csrf
             @if ($method !== 'POST')
                 @method($method)
@@ -11,11 +11,14 @@
                         <label for="{{ $field['name'] }}" class="block font-medium text-sm text-gray-700">{{ $field['label'] }}</label>
                         
                         @if ($field['type'] === 'select')
-                            <select name="{{ $field['name'] }}" id="{{ $field['name'] }}" class="form-select rounded-md shadow-sm mt-1 block w-full">
-                                @foreach ($field['options'] as $optionValue => $optionLabel)
-                                    <option value="{{ $optionValue }}" {{ old($field['name'], $field['value'] ?? '') == $optionValue ? 'selected' : '' }}>{{ $optionLabel }}</option>
-                                @endforeach
-                            </select>
+                        <select name="{{ $field['name'] }}" id="{{ $field['name'] }}" class="form-select rounded-md shadow-sm mt-1 block w-full">
+                            @foreach ($field['options'] as $optionValue => $optionLabel)
+                                <option value="{{ $optionValue }}" {{ old($field['name'], $field['value'] ?? '') == $optionValue ? 'selected' : '' }}>
+                                    {{ $optionLabel }}
+                                </option>
+                            @endforeach
+                        </select>                      
+                        
                         @else
                             <input type="{{ $field['type'] }}" name="{{ $field['name'] }}" id="{{ $field['name'] }}" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ old($field['name'], $field['value'] ?? '') }}" />
                         @endif
@@ -34,3 +37,4 @@
         </form>
     </div>
 </div>
+

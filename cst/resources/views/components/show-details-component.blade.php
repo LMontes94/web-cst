@@ -13,6 +13,8 @@
                             @else
                                 Deshabilitado
                             @endif
+                        @elseif (isset($field['relation']))
+                            {{ $model->{$field['relation']}->{$field['name']} ?? 'N/A' }}
                         @else
                             {{ $model->{$field['name']} }}
                         @endif
@@ -22,3 +24,4 @@
         </tbody>
     </table>
 </div>
+

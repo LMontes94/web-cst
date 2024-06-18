@@ -27,4 +27,9 @@ class Department extends Model
     {
         return $this->belongsToMany(User::class, 'permisos');
     }
+
+    public function staff()
+    {
+        return $this->hasMany(Staff::class);
+    }
 }

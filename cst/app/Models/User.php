@@ -70,7 +70,7 @@ class User extends Authenticatable
 
     public function userType(): BelongsTo
     {
-        return $this->belongsTo(UserType::class);
+        return $this->belongsTo(UserType::class, 'user_type_id');
     }
 
     public function posts(): HasMany

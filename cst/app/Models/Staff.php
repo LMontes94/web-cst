@@ -12,8 +12,14 @@ class Staff extends Model
 
     protected $guarded = [];
 
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'department_id');
+    }
+
     public function staffPositions(): BelongsToMany
     {
         return $this->belongsToMany(StaffPosition::class, 'staff_staff_position');
     }
+    
 }

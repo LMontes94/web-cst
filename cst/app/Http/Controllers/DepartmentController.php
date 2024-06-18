@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Dropdown;
 use App\Models\Department;
+use App\Models\Section;
 use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
@@ -61,8 +62,15 @@ class DepartmentController extends Controller
      */
     public function show(Department $department)
     {
+        $fields = [
+            ['name' => 'id', 'label' => 'ID'],
+            ['name' => 'name', 'label' => 'Name'],
+            ['name' => 'state', 'label' => 'Estado'],
+            ['name' => 'name', 'label' => 'Section Name', 'relation' => 'section'],
+        ];
+
         $dropdowns = $this->dropdowns;
-        return view('department.show', compact('department', 'dropdowns'));
+        return view('department.show', compact('department', 'dropdowns','fields'));
     }
 
     /**
@@ -70,23 +78,40 @@ class DepartmentController extends Controller
      */
     public function edit(Department $department)
     {
+        $sections = Section::all()->pluck('name', 'id');
+        
+        $fields = [
+            ['name' => 'name', 'label' => 'Name', 'type' => 'text'],
+            ['name' => 'section_id', 'label' => 'Section', 'type' => 'select', 'options' => $sections],
+        ];
+
         $dropdowns = $this->dropdowns;
-        return view('department.show', compact('department', 'dropdowns'));
+        return view('department.edit', compact('department', 'dropdowns','fields'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Department $department)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'section_id' => 'required|exists:sections,id',
+        ]);
+
+        $department->update([
+            'name' => $request->name,
+            'section_id' => $request->section_id,
+        ]);
+        return redirect()->route('department.index')->with('success', 'Department updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Department $department)
     {
-        //
+        $department->delete();
+        return redirect()->route('department.index')->with('success', 'Department deleted successfully.');
     }
 }

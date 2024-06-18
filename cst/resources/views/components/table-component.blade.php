@@ -19,33 +19,44 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                             @foreach ($items as $item)
-                                <tr>
-                                    @foreach ($headers as $header)
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            @if (isset($header['relation']))
-                                                {{ $item->{$header['relation']}->{$header['name']} ?? 'N/A' }}
-                                            @else
-                                                {{ $item->{$header['name']} }}
-                                            @endif
-                                        </td>
-                                    @endforeach
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                        <a href="{{ route($routePrefix . '.show', $item->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">
-                                            <i class="fas fa-file-alt"></i>
-                                        </a>
-                                        <a href="{{ route($routePrefix . '.edit', $item->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">
-                                            <i class="fa-solid fa-pencil"></i>
-                                        </a>
-                                        <form class="inline-block" action="{{ route($routePrefix . '.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </button>
-                                        </form>
+                            <tr>
+                                @foreach ($headers as $header)
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        @if (isset($header['relation']))
+                                            @php
+                                                $relations = explode('.', $header['relation']);
+                                                $value = $item;
+                                                foreach ($relations as $relation) {
+                                                    $value = $value->{$relation} ?? null;
+                                                    if (!$value) {
+                                                        break;
+                                                    }
+                                                }
+                                                $value = $value->{$header['name']} ?? 'N/A';
+                                            @endphp
+                                            {{ $value }}
+                                        @else
+                                            {{ $item->{$header['name']} }}
+                                        @endif
                                     </td>
-                                </tr>
-                            @endforeach
+                                @endforeach
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <a href="{{ route($routePrefix . '.show', $item->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">
+                                        <i class="fas fa-file-alt"></i>
+                                    </a>
+                                    <a href="{{ route($routePrefix . '.edit', $item->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </a>
+                                    <form class="inline-block" action="{{ route($routePrefix . '.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
