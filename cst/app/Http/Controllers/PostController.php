@@ -14,11 +14,19 @@ class PostController extends Controller
         $this->dropdowns = Dropdown::getMenu();
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::all();
+        $perPage = $request->input('per_page', 25); // 25 por defecto
+        $search = $request->input('search', '');
+
+        $posts = Post::with(['postType', 'imagePosts', 'documentPosts', 'videoPosts'])
+            ->when($search, function ($query, $search) {
+                return $query->where('title', 'like', "%{$search}%")
+                    ->orWhere('subtitle', 'like', "%{$search}%");
+            })
+            ->paginate($perPage);
         $dropdowns = $this->dropdowns;
-        return view('posts.index',compact('posts','dropdowns'));
+        return view('posts.index', compact('posts', 'dropdowns', 'perPage', 'search'));
     }
 
     /**

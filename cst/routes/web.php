@@ -6,6 +6,7 @@ use App\Http\Controllers\EducationalProposalController;
 use App\Http\Controllers\InicialController;
 use App\Http\Controllers\KnowUsController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostsTypeController;
 use App\Http\Controllers\PrimariaController;
 use App\Http\Controllers\SectionController;
@@ -80,6 +81,8 @@ Route::middleware([
         'update' => 'userType.update',
         'destroy' => 'userType.destroy'
     ]);
+
+    Route::resource('posts', PostController::class);
 
     Route::resource('/post-type', PostsTypeController::class)->names([
         'index' => 'postType.index',
