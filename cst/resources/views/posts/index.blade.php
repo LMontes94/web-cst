@@ -13,7 +13,7 @@
             <div class="col-md-8">
                 <div class="flex justify-between mb-4">
                     <div>
-                        <select onchange="location = this.value;">
+                        <select onchange="location = this.value; " class="rounded-md">
                             <option value="{{ route('posts.index', ['per_page' => 25]) }}" {{ $perPage == 25 ? 'selected' : '' }}>25</option>
                             <option value="{{ route('posts.index', ['per_page' => 50]) }}" {{ $perPage == 50 ? 'selected' : '' }}>50</option>
                             <option value="{{ route('posts.index', ['per_page' => 100]) }}" {{ $perPage == 100 ? 'selected' : '' }}>100</option>
@@ -31,36 +31,36 @@
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                             <tr>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Edit</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Delete</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Title</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Type</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Edit</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Delete</th>
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                             @foreach ($posts as $post)
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    <div>{{ $post->created_at->format('Y-m-d H:i') }}</div>
-                                    <div>{{ $post->title }}</div>
-                                    <div>{{ $post->subtitle }}</div>
-                                    <div>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 ">
+                                    <div class="py-1  flex items-center justify-center">{{ $post->created_at->format('Y-m-d H:i') }}</div>
+                                    <div class="py-1  flex items-center justify-center">{{ $post->title }}</div>
+                                    <div class="py-1  flex items-center justify-center">{{ $post->subtitle }}</div>
+                                    <div class="py-1  flex items-center justify-around">
                                         @if ($post->imagePosts->count() > 0)
-                                        <i class="fas fa-image"></i>
+                                        <i class="fas fa-image text-indigo-600"></i>
                                         @endif
                                         @if ($post->documentPosts->count() > 0)
-                                        <i class="fas fa-file-alt"></i>
+                                        <i class="fas fa-file-alt text-indigo-600"></i>
                                         @endif
                                         @if ($post->videoPosts->count() > 0)
-                                        <i class="fas fa-video"></i>
+                                        <i class="fas fa-video text-indigo-600"></i>
                                         @endif
                                     </div>
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ $post->postType->name }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">{{ $post->postType->name }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">
                                     <a href="{{ route('posts.edit', $post->id) }}" class="text-indigo-600 hover:text-indigo-900"><i class="fas fa-edit"></i></a>
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-center">
                                     <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')

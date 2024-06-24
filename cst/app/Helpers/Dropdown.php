@@ -44,7 +44,7 @@ class Dropdown
                 'icon' => 'fa-solid fa-file-alt',
                 'items' => [
                     ['label' => 'Lista completa', 'link' => route('posts.index')],
-                    ['label' => 'Crear', 'link' => '#'],
+                    ['label' => 'Crear', 'link' => route('posts.create')],
                 ]
             ],
             [
