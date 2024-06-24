@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MainController::class, 'index'])->name('index');
 Route::get('/contact', [MainController::class, 'contact'])->name('contact');
 Route::get('/admission', [MainController::class, 'admission'])->name('admission');
+Route::get('/all-posts', [MainController::class, 'allPosts'])->name('all-posts');
+Route::get('/post/{id}', [MainController::class, 'index'])->name('post.show');
 
 Route::get('/knowus/staff', [KnowUsController::class, 'staff'])->name('staff');
 Route::get('/knowus/general-letter', [KnowUsController::class, 'generalLetter'])->name('general-letter');

@@ -75,10 +75,6 @@
                 <p><a href="https://vimeo.com/828027354">Video Institucional - Nivel Inicial 2023</a> from <a href="https://vimeo.com/colegiostateresita">Colegio Santa Teresita</a> on <a href="https://vimeo.com">Vimeo</a>.</p><!--/li-->
                 <div class="clr"></div>
             </div>
-            <div class="album-videos-embebidos">
-                <div class="clr"></div>
-            </div>
-
         </section>
     </div>
 </div>
@@ -86,7 +82,21 @@
 </div>
 
 </div>
-
+<div class="w3l-blog-block-5 py-5" id="blog">
+    <div class="container py-md-5 py-4">
+        <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+            <h3 class="title-style">Últimas Novedades - Nivel Inicial</h3>
+        </div>
+        <div class="row justify-content-center">
+            @foreach($latestPosts as $post)
+            @include('_components.card-article', ['post' => $post])
+            @endforeach
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ route('all-posts') }}" class="btn btn-primary">Ver todas las novedades</a>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('styles')

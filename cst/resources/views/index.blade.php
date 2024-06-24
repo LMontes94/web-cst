@@ -98,63 +98,15 @@ Author URL: http://w3layouts.com12
             <h3 class="title-style">Últimas <span>Novedades</span></h3>
         </div>
         <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-card-single">
-                    <div class="grids5-info">
-                        <a href="#blog"><img src="assets/images/blog2.jpg" alt="" /></a>
-                        <div class="blog-info">
-                            <h4><a href="#blog">Education Programs...</a></h4>
-                            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, sunt inc
-                                officia deserunt.</p>
-                            <div class="d-flex align-items-center justify-content-between mt-4">
-                                <a class="d-flex align-items-center" href="#blog" title="23k followers">
-                                    <img class="img-fluid" src="assets/images/testi2.jpg" alt="admin" style="max-width:40px"> <span class="small ms-2">Eetey Cruis</span>
-                                </a>
-                                <p class="date-text"><i class="far fa-calendar-alt me-1"></i>Oct 06, 2021</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
-                <div class="blog-card-single">
-                    <div class="grids5-info">
-                        <a href="#blog"><img src="assets/images/blog1.jpg" alt="" /></a>
-                        <div class="blog-info">
-                            <h4><a href="#blog">Games Programs...</a></h4>
-                            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, sunt inc
-                                officia deserunt.</p>
-                            <div class="d-flex align-items-center justify-content-between mt-4">
-                                <a class="d-flex align-items-center" href="#blog" title="23k followers">
-                                    <img class="img-fluid" src="assets/images/testi1.jpg" alt="admin" style="max-width:40px"> <span class="small ms-2">Molive Joe</span>
-                                </a>
-                                <p class="date-text"><i class="far fa-calendar-alt me-1"></i>Oct 10, 2021</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-lg-0 mt-4">
-                <div class="blog-card-single">
-                    <div class="grids5-info">
-                        <a href="#blog"><img src="assets/images/blog3.jpg" alt="" /></a>
-                        <div class="blog-info">
-                            <h4><a href="#blog">Articles Programs...</a></h4>
-                            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, sunt inc
-                                officia deserunt.</p>
-                            <div class="d-flex align-items-center justify-content-between mt-4">
-                                <a class="d-flex align-items-center" href="#blog" title="23k followers">
-                                    <img class="img-fluid" src="assets/images/testi3.jpg" alt="admin" style="max-width:40px"> <span class="small ms-2">Turne Leo
-                                    </span>
-                                </a>
-                                <p class="date-text"><i class="far fa-calendar-alt me-1"></i>Oct 12, 2021</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @foreach($latestPosts as $post)
+            @include('_components.card-article', ['post' => $post])
+            @endforeach
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ route('all-posts') }}" class="btn btn-primary">Ver todas las novedades</a>
         </div>
     </div>
 </div>
+
 <!-- //blog block -->
 @endsection

@@ -3,13 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class InicialController extends Controller
 {
     public function inicial()
     {
-        return view('educationalProposal.ourLevels.inicial.inicial');
+        $latestPosts = Post::whereHas('departments', function ($query) {
+            $query->whereHas('section', function ($query) {
+                $query->where('name', 'Nivel Inicial');
+            });
+        })
+            ->latest()
+            ->take(3)
+            ->get();
+
+        return view('educationalProposal.ourLevels.inicial.inicial', compact('latestPosts'));
     }
     public function science()
     {
@@ -31,5 +41,4 @@ class InicialController extends Controller
     {
         return view('educationalProposal.ourLevels.inicial.document');
     }
-    
 }

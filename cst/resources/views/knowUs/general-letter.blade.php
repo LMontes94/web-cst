@@ -1,11 +1,11 @@
 @extends('layouts.landing')
 
 @section('content')
-@component('_components.inner-banner')   
- @slot('pageTitle','Carta de la Directora General')
- @slot('link1Text','Conocenos') 
- @slot('link1Url',route('index'))
- @slot('link2Text','Carta')
+@component('_components.inner-banner')
+@slot('pageTitle','Carta de la Directora General')
+@slot('link1Text','Conocenos')
+@slot('link1Url',route('index'))
+@slot('link2Text','Carta')
 
 @endcomponent
 <div class="container py-md-5 py-4">
@@ -20,11 +20,9 @@
                 <div class="row text-left left-side">
                     <div class="col-lg-3 col-6">
                         <div class="image-one text-center">
-                            <a href="#" data-toggle="modal" data-target="#imageModal">
-                                <img src="./assets/images/directivos/MariTaurozzi_thumb-removebg-preview.png" alt="dir-general" class="arrow-png img-responsive historic-photo" />
-                                <h4>María Marta</h4>
-                                <h4>Taurozzi</h4>
-                            </a>
+                            @if($directorGeneral)
+                            @include('components.card-staff', ['staff' => $directorGeneral])
+                            @endif
                         </div>
 
                     </div>
@@ -70,7 +68,7 @@
             </div>
         </section>
     </div>
-    
+
 </div>
 
 </div>

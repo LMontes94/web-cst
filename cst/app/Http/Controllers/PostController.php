@@ -39,12 +39,12 @@ class PostController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-{
-    $postTypes = PostType::all()->pluck('name', 'id');
-    $departments = Department::with('section')->get();
-    $dropdowns = $this->dropdowns;
-    return view('posts.create', compact('postTypes', 'departments','dropdowns'));
-}
+    {
+        $postTypes = PostType::all()->pluck('name', 'id');
+        $departments = Department::with('section')->get();
+        $dropdowns = $this->dropdowns;
+        return view('posts.create', compact('postTypes', 'departments', 'dropdowns'));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -55,7 +55,7 @@ class PostController extends Controller
         $data = $request->validated();
         $data['user_id'] = Auth::id();
         $data['state'] = 1;
-    
+
         // Crear el post sin los departamentos
         $post = Post::create([
             'title' => $data['title'],
@@ -67,36 +67,36 @@ class PostController extends Controller
             'user_id' => $data['user_id'],
             'state' => $data['state'],
         ]);
-    
+
         // Manejar la relación de departamentos
         if ($request->has('departments')) {
             $post->departments()->sync($request->departments);
         }
-    
+
         // Manejar las imágenes
         if ($request->hasFile('image_files')) {
             foreach ($request->file('image_files') as $file) {
                 $filename = $file->store('public/images');
-                $post->imagePosts()->create(['path' => $filename]);
+                $post->imagePosts()->create(['url_img' => $filename, 'state' => 1]);
             }
         }
-    
+
         // Manejar los documentos
         if ($request->hasFile('document_files')) {
             foreach ($request->file('document_files') as $file) {
                 $filename = $file->store('public/documents');
-                $post->documentPosts()->create(['path' => $filename]);
+                $post->documentPosts()->create(['url_doc' => $filename, 'state' => 1]);
             }
         }
-    
+
         // Manejar los videos
         if ($request->hasFile('video_files')) {
             foreach ($request->file('video_files') as $file) {
                 $filename = $file->store('public/videos');
-                $post->videoPosts()->create(['path' => $filename]);
+                $post->videoPosts()->create(['url_video' => $filename, 'state' => 1]);
             }
         }
-    
+
         return redirect()->route('posts.index')->with('success', 'Post created successfully.');
     }
 
@@ -113,7 +113,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        
+
         // Cargar las relaciones necesarias
         $post->load('departments', 'postType', 'imagePosts', 'documentPosts', 'videoPosts');
         $post->discharge_date = Carbon::parse($post->discharge_date);
@@ -124,11 +124,11 @@ class PostController extends Controller
         $departmentOptions = $departments->mapWithKeys(function ($department) {
             return [$department->id => $department->name . ($department->section ? ' - ' . $department->section->name : '')];
         });
-    
+
         // Obtener los tipos de posts
         $postTypes = PostType::all()->pluck('name', 'id');
         $dropdowns = $this->dropdowns;
-        return view('posts.edit', compact('post', 'departmentOptions', 'postTypes','dropdowns'));
+        return view('posts.edit', compact('post', 'departmentOptions', 'postTypes', 'dropdowns'));
     }
 
     /**
@@ -138,7 +138,7 @@ class PostController extends Controller
     {
         // Extraer los datos del request
         $data = $request->validated();
-    
+
         // Actualizar el post
         $post->update([
             'title' => $data['title'],
@@ -150,14 +150,14 @@ class PostController extends Controller
             'user_id' => Auth::id(), // Asegurarse de que el usuario es el actual
             'state' => 1, // Mantener el estado como 1
         ]);
-    
+
         // Manejar la relación de departamentos
         if ($request->has('departments')) {
             $post->departments()->sync($request->departments);
         } else {
             $post->departments()->sync([]); // Si no se proporcionan departamentos, eliminar las relaciones existentes
         }
-    
+
         // Manejar imágenes
         if ($request->hasFile('image_files')) {
             foreach ($request->file('image_files') as $file) {
@@ -165,7 +165,7 @@ class PostController extends Controller
                 $post->imagePosts()->create(['url_img' => $filename, 'state' => 1]);
             }
         }
-    
+
         // Manejar documentos
         if ($request->hasFile('document_files')) {
             // Subir y guardar los nuevos documentos
@@ -174,7 +174,7 @@ class PostController extends Controller
                 $post->documentPosts()->create(['url_doc' => $filename, 'state' => 1]);
             }
         }
-    
+
         // Manejar videos
         if ($request->hasFile('video_files')) {
             // Subir y guardar los nuevos videos
@@ -183,18 +183,18 @@ class PostController extends Controller
                 $post->videoPosts()->create(['url_video' => $filename, 'state' => 1]);
             }
         }
-    
+
         return redirect()->route('posts.index')->with('success', 'Post updated successfully.');
     }
-    
+
 
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Post $post)
-{
-    $post->delete();
-    return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
-}
+    {
+        $post->delete();
+        return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
+    }
 }

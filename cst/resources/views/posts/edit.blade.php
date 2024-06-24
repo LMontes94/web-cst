@@ -13,6 +13,15 @@
             <livewire:sidebar :menuTitle="'ABMs'" :dropdowns="$dropdowns" />
             <div class="col-md-8">
                 <div class="max-w-4xl mx-auto py-10 sm:px-6 lg:px-8">
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <form method="POST" action="{{ route('posts.update', $post->id) }}" enctype="multipart/form-data" class="space-y-6 bg-white p-6 rounded-lg shadow-md">
                         @csrf
                         @method('PUT')
@@ -40,7 +49,7 @@
                             <label for="post_type_id" class="block text-sm font-medium text-gray-700">Post Type</label>
                             <select name="post_type_id" id="post_type_id" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                                 @foreach($postTypes as $id => $name)
-                                    <option value="{{ $id }}" {{ $post->post_type_id == $id ? 'selected' : '' }}>{{ $name }}</option>
+                                <option value="{{ $id }}" {{ $post->post_type_id == $id ? 'selected' : '' }}>{{ $name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -60,10 +69,10 @@
                             <label class="block text-sm font-medium text-gray-700">Departments</label>
                             <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                                 @foreach($departmentOptions as $id => $name)
-                                    <label class="flex items-center">
-                                        <input type="checkbox" name="departments[]" value="{{ $id }}" {{ $post->departments->contains($id) ? 'checked' : '' }} class="form-checkbox h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                                        <span class="ml-2 text-sm text-gray-700">{{ $name }}</span>
-                                    </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="departments[]" value="{{ $id }}" {{ $post->departments->contains($id) ? 'checked' : '' }} class="form-checkbox h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                    <span class="ml-2 text-sm text-gray-700">{{ $name }}</span>
+                                </label>
                                 @endforeach
                             </div>
                         </div>
@@ -87,9 +96,9 @@
                             <input type="file" name="document_files[]" id="document_files" multiple class="mt-1 block w-full text-gray-500">
                             <div class="mt-2 flex flex-wrap gap-2">
                                 @foreach($post->documentPosts as $document)
-                                    <a href="{{ asset(Storage::url($document->url_doc)) }}" class="w-24 h-24 object-cover rounded-lg shadow-md flex items-center justify-center rounded-lg shadow-md text-center text-indigo-600 hover:bg-indigo-100 transition duration-300 ease-in-out" target="_blank">
-                                        <i class="fa-regular fa-file fa-3x"></i>
-                                    </a>
+                                <a href="{{ asset(Storage::url($document->url_doc)) }}" class="w-24 h-24 object-cover rounded-lg shadow-md flex items-center justify-center rounded-lg shadow-md text-center text-indigo-600 hover:bg-indigo-100 transition duration-300 ease-in-out" target="_blank">
+                                    <i class="fa-regular fa-file fa-3x"></i>
+                                </a>
                                 @endforeach
                             </div>
                         </div>
@@ -100,9 +109,9 @@
                             <input type="file" name="video_files[]" id="video_files" multiple class="mt-1 block w-full text-gray-500">
                             <div class="mt-2 flex flex-wrap gap-2">
                                 @foreach($post->videoPosts as $video)
-                                    <a href="{{ asset(Storage::url($video->url_video)) }}" class="w-24 h-24 object-cover rounded-lg shadow-md flex items-center justify-center rounded-lg shadow-md text-center text-indigo-600 hover:bg-indigo-100 transition duration-300 ease-in-out" target="_blank">
-                                        <i class="fa-solid fa-file-video fa-3x"></i>
-                                    </a>
+                                <a href="{{ asset(Storage::url($video->url_video)) }}" class="w-24 h-24 object-cover rounded-lg shadow-md flex items-center justify-center rounded-lg shadow-md text-center text-indigo-600 hover:bg-indigo-100 transition duration-300 ease-in-out" target="_blank">
+                                    <i class="fa-solid fa-file-video fa-3x"></i>
+                                </a>
                                 @endforeach
                             </div>
                         </div>

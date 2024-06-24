@@ -1,18 +1,24 @@
-<x-app-layout>
-    @section('styles')
-    <link rel="stylesheet" href="{{ asset('assets/css/component/sidebar.css') }}">
-    @endsection
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Staff Details') }}
-        </h2>
-    </x-slot>
+@extends('layouts.landing')
 
-    <div class="container py-md-5 py-4">
-        <div class="row">
-            <livewire:sidebar :menuTitle="'ABMs'" :dropdowns="$dropdowns" />
-            <div class="col-md-8">
-            </div>
+@section('content')
+@component('_components.inner-banner')
+@slot('pageTitle', $post->title)
+@slot('link1Text', 'Conócenos')
+@slot('link1Url', route('index'))
+@slot('link2Text', $post->title)
+@endcomponent
+
+<div class="container py-md-5 py-4">
+    <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+        <h3 class="title-style">{{ $post->title }}</h3>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <img src="{{ Storage::url($post->url_image) }}" alt="{{ $post->title }}" class="img-fluid mb-4">
+            <p>{{ $post->description }}</p>
+            <p><strong>Autor:</strong> {{ $post->user->name }}</p>
+            <p><strong>Fecha:</strong> {{ $post->created_at->format('M d, Y') }}</p>
         </div>
     </div>
-</x-app-layout>
+</div>
+@endsection
