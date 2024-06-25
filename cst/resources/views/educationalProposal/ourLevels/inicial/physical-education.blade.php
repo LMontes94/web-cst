@@ -13,22 +13,24 @@
     <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
         <h3 class="title-style title-page">La Educación Física en Nivel Inicial</h3>
     </div>
-    @include('layouts._partials.menus.menu-inicial')
-    <!-- Columna derecha -->
-    <div class="col-md-7">
-        <section class="w3l-team-13 py-5" id="team">
-            <div class="container py-md-5 py-4">
-                <p>
-                    La Educación Física contribuye a la formación integral de los niños propiciando de modo 
-                    intencionado y sistemático, la construcción de saberes corporales,  motrices, lúdicos y 
-                    relacionales con la finalidad de enriquecer la relación del sujeto consigo mismo y con los
-                    otros. </p>
+    <div class="container py-md-5 py-4">
+        <div class="row">
+            @include('layouts._partials.menus.menu-inicial')
+            <!-- Columna derecha -->
+            <div class="col-md-7">
+                <section class="w3l-team-13 py-5" id="team">
+                    <div class="container py-md-5 py-4">
+                        <p>
+                            La Educación Física contribuye a la formación integral de los niños propiciando de modo
+                            intencionado y sistemático, la construcción de saberes corporales, motrices, lúdicos y
+                            relacionales con la finalidad de enriquecer la relación del sujeto consigo mismo y con los
+                            otros. </p>
 
-        </section>
+                </section>
+            </div>
+        </div>
+
     </div>
-</div>
-
-</div>
 
 </div>
 

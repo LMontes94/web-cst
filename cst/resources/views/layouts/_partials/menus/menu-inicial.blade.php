@@ -4,7 +4,7 @@
         <div class="cont-details">
             <div class="d-flex contact-grid">
                 <div class="menu-title">
-                    <a href="inicial.php">
+                    <a href="{{route('inicial')}}">
                         <h3>Nivel Inicial</h3>
                     </a>
                 </div>
