@@ -10,7 +10,9 @@
     <!-- Google fonts -->
     <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.9.5/cdn.min.js" defer></script>
     <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/style-starter.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/style-navbar.css')}}">
     @yield('styles')

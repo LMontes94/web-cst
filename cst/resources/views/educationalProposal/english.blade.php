@@ -198,11 +198,12 @@
     </div>
 </div>
 <!-- //courses section -->
-<div class="container">
-    <div class="album-videos-embebidos">
-      <iframe frameborder="0" src="https://www.youtube.com/embed/WVBEfN4xVN4" allowfullscreen></iframe>
-    </div>
+<div class="container-video">
+  <div class="album-videos-embebidos flex justify-center">
+      <iframe frameborder="0" src="https://www.youtube.com/embed/WVBEfN4xVN4" allowfullscreen class="w-full md:w-2/3 lg:w-1/2 aspect-video"></iframe>
+  </div>
 </div>
+
 
 @endsection
 

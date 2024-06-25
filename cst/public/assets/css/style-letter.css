@@ -42,6 +42,11 @@ ul.points li {
     height: 360px;
 }
 
+.container-video{
+    display: flex;
+    justify-content: center;
+}
+
 @media (max-width: 767px) {
     .album-videos-embebidos iframe {
         width: 100%;

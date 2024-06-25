@@ -9,23 +9,29 @@
 @endcomponent
 
 <div class="container py-md-5 py-4">
-    <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+    <div class="title-main text-center mx-auto mb-md-5 mb-4" >
         <h3 class="title-style title-page">Equipo Directivo</h3>
     </div>
-    @include('layouts._partials.menus.left-menu-about')
-    <!-- Columna derecha -->
-    <div class="col-md-7">
-        <section class="w3l-team-13 py-5" id="team">
-            <div class="container py-md-5 py-4">
-                <div class="row text-center left-side">
-                    @foreach($staff as $member)
-                    @include('_components.card-staff', ['staff' => $member])
-                    @endforeach
-                </div>
+    <div class="container py-md-5 py-4">
+        <div class="row">
+            @include('layouts._partials.menus.left-menu-about')
+            <!-- Columna derecha -->
+            <div class="col-md-7">
+                <section class="w3l-team-13 py-5" id="team">
+                    <div class="container py-md-5 py-4">
+                        <div class="row text-center left-side">
+                            @foreach($staff as $member)
+                                @include('_components.card-staff', ['staff' => $member])
+                            @endforeach
+                        </div>
+                    </div>
+                </section>
             </div>
-        </section>
+        </div>
     </div>
+</div>   
 </div>
+</div>   
 
 @endsection
 

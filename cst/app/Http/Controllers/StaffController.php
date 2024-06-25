@@ -62,7 +62,7 @@ class StaffController extends Controller
 
         if ($request->hasFile('url_image')) {
             $imageName = time() . '.' . $request->file('url_image')->extension();
-            $request->file('url_image')->storeAs('assets/img', $imageName);
+            $request->file('url_image')->storeAs('public/img/staff', $imageName);
             $staff->url_image = $imageName;
         }
         $staff->save();
@@ -91,7 +91,7 @@ class StaffController extends Controller
             ['name' => 'section', 'label' => 'Section', 'value' => $section],
             ['name' => 'positions', 'label' => 'Positions', 'value' => $positionsString],
             ['name' => 'state', 'label' => 'Estado', 'value' => $staff->state ? 'Habilitado' : 'Deshabilitado'],
-            ['name' => 'url_image', 'label' => 'Image', 'value' => $staff->url_image ? asset('assets/img/' . $staff->url_image) : 'N/A']
+            ['name' => 'url_image', 'label' => 'Image', 'value' => $staff->url_image ? Storage::url('public/img/staff/' . $staff->url_image) : 'N/A']
         ];
 
         $dropdowns = $this->dropdowns;
@@ -130,12 +130,12 @@ class StaffController extends Controller
         if ($request->hasFile('url_image')) {
             // Eliminamos la imagen anterior si existe
             if ($staff->url_image) {
-                Storage::delete('public/assets/img/' . $staff->url_image);
+                Storage::delete('public/assets/img/staff/' . $staff->url_image);
             }
 
             // Subimos la nueva imagen
             $imageName = time() . '.' . $request->file('url_image')->extension();
-            $request->file('url_image')->storeAs('public/assets/img', $imageName);
+            $request->file('url_image')->storeAs('public/img/staff', $imageName);
             $staff->url_image = $imageName;
         }
         $staff->save();
