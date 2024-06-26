@@ -11,6 +11,9 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Laravel\Facades\Image;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class PostController extends Controller
 {
@@ -76,8 +79,38 @@ class PostController extends Controller
         // Manejar las imágenes
         if ($request->hasFile('image_files')) {
             foreach ($request->file('image_files') as $file) {
-                $filename = $file->store('public/images');
-                $post->imagePosts()->create(['url_img' => $filename, 'state' => 1]);
+                $filename = time().'.'.$file->getClientOriginalName();
+                // Redimensionar y almacenar las imágenes en diferentes tamaños
+
+                $file->storeAs('public/images/originals', $filename);
+                $originalFilePath = 'public/images/originals/' . $filename;
+                $fileManager = new ImageManager(new Driver());
+
+                $thumbnail = $fileManager->read(storage_path('app/'.$originalFilePath));
+                $thumbnail->resize(150,150);
+                $thumbnailPath = 'public/images/thumbnails/' . $filename;
+                $thumbnail->save(storage_path('app/' . $thumbnailPath));
+                
+
+                $medium = $fileManager->read(storage_path('app/'.$originalFilePath));
+                $medium->resize(640,300);
+                $mediumPath = 'public/images/medium/' . $filename;
+                $medium->save(storage_path('app/'. $mediumPath));
+                
+
+                $large = $fileManager->read(storage_path('app/'.$originalFilePath));
+                $large->resize(1024,768);
+                $largeFilePath = 'public/images/large/' . $filename;
+                $large->save(storage_path('app/'. $largeFilePath));
+                
+
+                $post->imagePosts()->create([
+                    'url_img' => $originalFilePath,
+                    'thumbnail' => $thumbnailPath,
+                    'medium' => $mediumPath,
+                    'large' => $largeFilePath,
+                    'state' => 1,
+                ]);
             }
         }
 
@@ -170,8 +203,38 @@ class PostController extends Controller
         if ($request->hasFile('document_files')) {
             // Subir y guardar los nuevos documentos
             foreach ($request->file('document_files') as $file) {
-                $filename = $file->store('public/documents');
-                $post->documentPosts()->create(['url_doc' => $filename, 'state' => 1]);
+                $filename = time().'.'.$file->getClientOriginalName();
+                // Redimensionar y almacenar las imágenes en diferentes tamaños
+
+                $file->storeAs('public/images/originals', $filename);
+                $originalFilePath = 'public/images/originals/' . $filename;
+                $fileManager = new ImageManager(new Driver());
+
+                $thumbnail = $fileManager->read(storage_path('app/'.$originalFilePath));
+                $thumbnail->resize(150,150);
+                $thumbnailPath = 'public/images/thumbnails/' . $filename;
+                $thumbnail->save(storage_path('app/' . $thumbnailPath));
+                
+
+                $medium = $fileManager->read(storage_path('app/'.$originalFilePath));
+                $medium->resize(640,300);
+                $mediumPath = 'public/images/medium/' . $filename;
+                $medium->save(storage_path('app/'. $mediumPath));
+                
+
+                $large = $fileManager->read(storage_path('app/'.$originalFilePath));
+                $large->resize(1024,768);
+                $largeFilePath = 'public/images/large/' . $filename;
+                $large->save(storage_path('app/'. $largeFilePath));
+                
+
+                $post->imagePosts()->create([
+                    'url_img' => $originalFilePath,
+                    'thumbnail' => $thumbnailPath,
+                    'medium' => $mediumPath,
+                    'large' => $largeFilePath,
+                    'state' => 1,
+                ]);
             }
         }
 
