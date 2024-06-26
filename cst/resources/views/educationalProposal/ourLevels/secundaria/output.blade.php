@@ -32,12 +32,21 @@
                     <li>Viaje a Córdoba.</li>
                     <li>Viaje a Sierra de la Ventana.</li>
                 </ul>
+            </div>
     </div>
-</div>
 
 </div>
 
 </div>
+@if($latestPosts->isNotEmpty())
+@component('_components.blog-block', [
+'title' => 'Últimas Novedades ',
+'highlight' => '- Nivel Secundaria',
+'latestPosts' => $latestPosts,
+'route' => route('all-posts-primaria'),
+'text'=>'Ver todas las novedades de Secundaria'])
+@endcomponent
+@endif
 @endsection
 
 @section('styles')

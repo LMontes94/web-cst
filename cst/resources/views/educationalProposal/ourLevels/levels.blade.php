@@ -9,6 +9,9 @@
 
 @endcomponent
 @include('_components.ourLevels')
+@component('_components.blog-block', ['title' => 'Últimas', 'highlight' => 'Novedades', 'latestPosts' => $latestPosts,
+'route' => route('all-posts'), 'text'=>'Ver todas las novedades'])
+@endcomponent
 <!-- //courses section -->
 @endsection
 

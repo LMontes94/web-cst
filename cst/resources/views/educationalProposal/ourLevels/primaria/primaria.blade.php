@@ -48,17 +48,21 @@
                     <p><a href="https://vimeo.com/828038995">Video Institucional - Educaci&oacute;n Primaria 2023</a> from <a href="https://vimeo.com/colegiostateresita">Colegio Santa Teresita</a> on <a href="https://vimeo.com">Vimeo</a>.</p><!--/li-->
                     <div class="clr"></div>
                 </div>
-                <div class="album-videos-embebidos">
-                    <div class="clr"></div>
-                </div>
-
         </section>
     </div>
 </div>
-
 </div>
-
 </div>
+@if($latestPosts->isNotEmpty())
+@component('_components.blog-block', [
+'title' => 'Últimas Novedades ',
+'highlight' => '- Nivel Primaria',
+'latestPosts' => $latestPosts,
+'route' => route('all-posts-primaria'),
+'text'=>'Ver todas las novedades de Primaria'])
+@endcomponent
+@endif
+
 @endsection
 
 @section('styles')

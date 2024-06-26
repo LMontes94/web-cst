@@ -21,6 +21,9 @@ Route::get('/', [MainController::class, 'index'])->name('index');
 Route::get('/contact', [MainController::class, 'contact'])->name('contact');
 Route::get('/admission', [MainController::class, 'admission'])->name('admission');
 Route::get('/all-posts', [MainController::class, 'allPosts'])->name('all-posts');
+Route::get('/all-posts/inicial', [InicialController::class, 'allPosts'])->name('all-posts-inicial');
+Route::get('/all-posts/primaria', [PrimariaController::class, 'allPosts'])->name('all-posts-primaria');
+Route::get('/all-posts/secundaria', [SecundariaController::class, 'allPosts'])->name('all-posts-secundaria');
 Route::get('/post/{id}', [MainController::class, 'show'])->name('post.show');
 
 Route::get('/knowus/staff', [KnowUsController::class, 'staff'])->name('staff');

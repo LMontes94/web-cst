@@ -42,13 +42,13 @@
                     Prácticas
                 </h6>
                 <ul class="points">
-                  <li>De laboratorio para alumnos de 6º año Naturales.</li>
-                  <li>De video para los alumnos de 6º año Comunicación.</li>
-                  <li>Contables para los alumnos de 6º año Economía.</li>
-                  <li>De radio: radio abierta desde FM zonal y prácticas de locución en actos y eventos escolares, para los alumnos de 5º año Comunicación. </li>
-                  <li>De audio</li>
-                  <li>Biblioteca</li>
-                  <li>En Preceptoría</li>                
+                    <li>De laboratorio para alumnos de 6º año Naturales.</li>
+                    <li>De video para los alumnos de 6º año Comunicación.</li>
+                    <li>Contables para los alumnos de 6º año Economía.</li>
+                    <li>De radio: radio abierta desde FM zonal y prácticas de locución en actos y eventos escolares, para los alumnos de 5º año Comunicación. </li>
+                    <li>De audio</li>
+                    <li>Biblioteca</li>
+                    <li>En Preceptoría</li>
                 </ul>
                 <h6>
                     Olimpíadas
@@ -106,13 +106,22 @@
                 <h6>Festival de bandas musicales</h6>
                 <h6>Café literario - filosófico</h6>
                 <h6>Desayuno literario</h6>
-            </section>
+        </section>
     </div>
 </div>
 
 </div>
 
 </div>
+@if($latestPosts->isNotEmpty())
+@component('_components.blog-block', [
+'title' => 'Últimas Novedades ',
+'highlight' => '- Nivel Secundaria',
+'latestPosts' => $latestPosts,
+'route' => route('all-posts-primaria'),
+'text'=>'Ver todas las novedades de Secundaria'])
+@endcomponent
+@endif
 @endsection
 
 @section('styles')

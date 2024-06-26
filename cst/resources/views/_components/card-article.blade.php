@@ -3,12 +3,12 @@
         <div class="grids5-info">
             @if ($post->imagePosts->isNotEmpty())
             <a href="{{ route('post.show', $post->id) }}">
-                <img src="{{ Storage::url($post->imagePosts->first()->url_img) }}" alt="{{ $post->title }}" />
+                <img src="{{ Storage::url($post->imagePosts->first()->medium) }}" alt="{{ $post->title }}" class="w-full h-48 object-cover" />
             </a>
             @endif
-            <div class="blog-info">
-                <h4><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></h4>
-                <p>{{ \Illuminate\Support\Str::limit($post->description, 100) }}</p>
+            <div class="blog-info p-4">
+                <h4 class="text-lg font-bold mb-2"><a href="{{ route('post.show', $post->id) }}">{{ $post->title }}</a></h4>
+                <p class="text-gray-700 mb-4">{{ \Illuminate\Support\Str::limit($post->description, 100) }}</p>
                 <div class="d-flex align-items-center justify-content-between mt-4">
                     <a class="d-flex align-items-center" href="#blog" title="23k followers">
                         <span class="small ms-2 mx-3">{{ $post->user->name }}</span>

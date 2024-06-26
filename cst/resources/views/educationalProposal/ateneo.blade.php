@@ -32,15 +32,18 @@
                             <p><strong>Correo electrónico:</strong> santateresitaateneo@gmail.com</p>
                             <p><strong>Teléfono:</strong> (011) 4513-6744</p>
                         </div>
-                            <p>¡Conocé más en nuestra página de <a href="https://www.facebook.com/ateneosantateresita/">Facebook AQUÍ</a></p>
+                        <p>¡Conocé más en nuestra página de <a href="https://www.facebook.com/ateneosantateresita/">Facebook AQUÍ</a></p>
                     </section>
                 </div>
             </div>
-        </div>   
+        </div>
     </div>
 </div>
 </div>
 </div>
+@component('_components.blog-block', ['title' => 'Últimas', 'highlight' => 'Novedades', 'latestPosts' => $latestPosts,
+'route' => route('all-posts'), 'text'=>'Ver todas las novedades'])
+@endcomponent
 @endsection
 
 @section('styles')

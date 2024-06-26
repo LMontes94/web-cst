@@ -90,6 +90,15 @@
 </div>
 
 </div>
+@if($latestPosts->isNotEmpty())
+@component('_components.blog-block', [
+'title' => 'Últimas Novedades ',
+'highlight' => '- Nivel Primaria',
+'latestPosts' => $latestPosts,
+'route' => route('all-posts-primaria'),
+'text'=>'Ver todas las novedades de Primaria'])
+@endcomponent
+@endif
 @endsection
 
 @section('styles')

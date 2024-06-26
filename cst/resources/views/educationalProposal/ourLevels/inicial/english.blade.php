@@ -77,7 +77,15 @@
     </div>
 
 </div>
-
+@if($latestPosts->isNotEmpty())
+@component('_components.blog-block', [
+'title' => 'Últimas Novedades ',
+'highlight' => '- Nivel Inicial',
+'latestPosts' => $latestPosts,
+'route' => route('all-posts-inicial'),
+'text'=>'Ver todas las novedades de Inicial'])
+@endcomponent
+@endif
 @endsection
 
 @section('styles')

@@ -37,7 +37,7 @@
                 <p>
                     El estudiante que excede el límite de inasistencias en la o las materias debe seguir concurriendo, con las mismas obligaciones escolares. Deberá acreditarlas ante comisión evaluadora en las instancias de diciembre, febrero y marzo.
                 </p>
-                <h5>JUSTIFICACIÓN  </h5>
+                <h5>JUSTIFICACIÓN </h5>
                 <p>Inasistencias por enfermedad: mediante certificado médico o nota firmada del adulto responsable si el causal es pasajero.</p>
                 <p>A los estudiantes que integran delegaciones deportivas se les justificarán las inasistencias por esta causa y no afectarán a la promoción (Ley Nacional del Deporte).</p>
                 <h5>EVALUACIÓN, ACREDITACIÓN Y CALIFICACIÓN</h5>
@@ -83,6 +83,15 @@
 </div>
 
 </div>
+@if($latestPosts->isNotEmpty())
+@component('_components.blog-block', [
+'title' => 'Últimas Novedades ',
+'highlight' => '- Nivel Secundaria',
+'latestPosts' => $latestPosts,
+'route' => route('all-posts-primaria'),
+'text'=>'Ver todas las novedades de Secundaria'])
+@endcomponent
+@endif
 @endsection
 
 @section('styles')

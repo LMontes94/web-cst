@@ -19,8 +19,8 @@ Author URL: http://w3layouts.com12
         </div>
         <div class="row align-items-center pt-sm-5 pt-4">
             <div class="col-md-11 text-md-end">
-                <a href="https://www.instagram.com/colegiostateresita/" class="btn ig btn-style" target="_blank"><img src="{{asset('assets/img/instagram.png')}}" alt="ig-icon"></a>
-                <a href="https://web.handing.co/pre-login" class="btn btn-style" target="_blank">Handing</a>
+                <a href="https://www.instagram.com/colegiostateresita/" class="btn btn-primary ig rounded-circle" target="_blank"><img src="{{asset('assets/img/instagram.png')}}" alt="ig-icon"></a>
+                <a href="https://web.handing.co/pre-login" class="btn btn-primary" target="_blank">Handing</a>
             </div>
         </div>
     </div>
@@ -52,7 +52,7 @@ Author URL: http://w3layouts.com12
                     promoviendo su desarrollo integral en lo espiritual, intelectual, emocional, ético, cívico,
                     social, estético y físico, desde una perspectiva cristiana.</p>
 
-                <a href="contact.html" class="btn btn-style mt-5">Leer Más</a>
+                <a href="{{route('history')}}" class="btn btn-primary mt-5">Leer Más</a>
             </div>
         </div>
     </div>
@@ -63,7 +63,7 @@ Author URL: http://w3layouts.com12
 <div class="container-fluid">
     @include('_components.ourLevels')
     <div class="text-center mt-sm-5 mt-4 pt-sm-0 pt-1">
-        <a class="btn btn-style btn-style-secondary mt-sm-3" href="levels.php">
+        <a class="btn btn-primary mt-sm-3" href="{{route('levels')}}">
             Mas info</a>
     </div>
 </div>
@@ -78,12 +78,12 @@ Author URL: http://w3layouts.com12
         <div class="row content23-col-2 text-center">
             <div class="col-md-6">
                 <div class="content23-grid content23-grid1">
-                    <h4><a href="about.html">Inglés</a></h4>
+                    <h4><a href="{{route('english')}}">Inglés</a></h4>
                 </div>
             </div>
             <div class="col-md-6 mt-md-0 mt-4">
                 <div class="content23-grid content23-grid2">
-                    <h4><a href="about.html">Ateneo</a></h4>
+                    <h4><a href="{{route('ateneo')}}">Ateneo</a></h4>
                 </div>
             </div>
         </div>
@@ -91,22 +91,9 @@ Author URL: http://w3layouts.com12
 </section>
 <!-- //why choose block -->
 
-<!-- blog block -->
-<div class="w3l-blog-block-5 py-5" id="blog">
-    <div class="container py-md-5 py-4">
-        <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
-            <h3 class="title-style">Últimas <span>Novedades</span></h3>
-        </div>
-        <div class="row justify-content-center">
-            @foreach($latestPosts as $post)
-            @include('_components.card-article', ['post' => $post])
-            @endforeach
-        </div>
-        <div class="text-center mt-4">
-            <a href="{{ route('all-posts') }}" class="btn btn-primary">Ver todas las novedades</a>
-        </div>
-    </div>
-</div>
+@component('_components.blog-block', ['title' => 'Últimas', 'highlight' => 'Novedades', 'latestPosts' => $latestPosts,
+'route' => route('all-posts'), 'text'=>'Ver todas las novedades'])
+@endcomponent
 
 <!-- //blog block -->
 @endsection

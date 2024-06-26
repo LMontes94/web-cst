@@ -39,13 +39,22 @@
                     <li>Educación para el amor y la sexualidad.</li>
                     <li>Uso responsable de las nuevas tecnologías.</li>
                 </ul>
-            </section>
+        </section>
     </div>
 </div>
 
 </div>
 
 </div>
+@if($latestPosts->isNotEmpty())
+@component('_components.blog-block', [
+'title' => 'Últimas Novedades ',
+'highlight' => '- Nivel Secundaria',
+'latestPosts' => $latestPosts,
+'route' => route('all-posts-primaria'),
+'text'=>'Ver todas las novedades de Secundaria'])
+@endcomponent
+@endif
 @endsection
 
 @section('styles')

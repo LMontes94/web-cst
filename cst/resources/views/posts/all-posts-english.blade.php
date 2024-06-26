@@ -5,14 +5,14 @@
 @slot('pageTitle','Todas las Novedades')
 @slot('link1Text','Conócenos')
 @slot('link1Url',route('index'))
-@slot('link2Text','Todas las Novedades')
+@slot('link2Text','Novedades de Inglés')
 @endcomponent
 
 @component('_components.blog-block', [
-'title' => 'Todas',
-'highlight' => 'las Novedades',
+'title' => 'Todas las Novedades',
+'highlight' => '- Inglés',
 'latestPosts' => $posts,
-'route' => route('index'), 'text'=>'Volver'])
+'route' => route('english'), 'text'=>'Volver'])
 @endcomponent
 
 @endsection

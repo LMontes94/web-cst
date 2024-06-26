@@ -3,52 +3,71 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Traits\FetchPostsTrait;
 use Illuminate\Http\Request;
 
 class SecundariaController extends Controller
 {
+    use FetchPostsTrait;
     public function secundaria()
     {
-        return view('educationalProposal.ourLevels.secundaria.secundaria');
+        $latestPosts = $this->getLatestPosts('Nivel Secundaria');
+        return view('educationalProposal.ourLevels.secundaria.secundaria', compact('latestPosts'));
     }
     public function team()
     {
-        return view('educationalProposal.ourLevels.secundaria.team');
+        $latestPosts = $this->getLatestPosts('Nivel Secundaria');
+        return view('educationalProposal.ourLevels.secundaria.team', compact('latestPosts'));
     }
     public function studentCouncil()
     {
-        return view('educationalProposal.ourLevels.secundaria.student-council');
+        $latestPosts = $this->getLatestPosts('Nivel Secundaria');
+        return view('educationalProposal.ourLevels.secundaria.student-council', compact('latestPosts'));
     }
     public function guidanceTeam()
     {
-        return view('educationalProposal.ourLevels.secundaria.guidance-team');
+        $latestPosts = $this->getLatestPosts('Nivel Secundaria');
+        return view('educationalProposal.ourLevels.secundaria.guidance-team', compact('latestPosts'));
     }
     public function workshop()
     {
-        return view('educationalProposal.ourLevels.secundaria.workshops');
+        $latestPosts = $this->getLatestPosts('Nivel Secundaria');
+        return view('educationalProposal.ourLevels.secundaria.workshops', compact('latestPosts'));
     }
     public function sample()
     {
-        return view('educationalProposal.ourLevels.secundaria.samples');
+        $latestPosts = $this->getLatestPosts('Nivel Secundaria');
+        return view('educationalProposal.ourLevels.secundaria.samples', compact('latestPosts'));
     }
     public function output()
     {
-        return view('educationalProposal.ourLevels.secundaria.output');
+        $latestPosts = $this->getLatestPosts('Nivel Secundaria');
+        return view('educationalProposal.ourLevels.secundaria.output', compact('latestPosts'));
     }
     public function physicalEducation()
     {
-        return view('educationalProposal.ourLevels.secundaria.physical-education');
+        $latestPosts = $this->getLatestPosts('Nivel Secundaria');
+        return view('educationalProposal.ourLevels.secundaria.physical-education', compact('latestPosts'));
     }
     public function english()
     {
-        return view('educationalProposal.ourLevels.secundaria.english');
+        $latestPosts = $this->getLatestPosts('Nivel Secundaria');
+        return view('educationalProposal.ourLevels.secundaria.english', compact('latestPosts'));
     }
     public function document()
     {
-        return view('educationalProposal.ourLevels.secundaria.document');
+        $latestPosts = $this->getLatestPosts('Nivel Secundaria');
+        return view('educationalProposal.ourLevels.secundaria.document', compact('latestPosts'));
     }
     public function regulation()
     {
-        return view('educationalProposal.ourLevels.secundaria.regulations');
+        $latestPosts = $this->getLatestPosts('Nivel Secundaria');
+        return view('educationalProposal.ourLevels.secundaria.regulations', compact('latestPosts'));
+    }
+
+    public function allPosts()
+    {
+        $posts = $this->fetchPostsBySection('Nivel Secundaria', 10);
+        return view('posts.all-posts-secundaria', compact('posts'));
     }
 }

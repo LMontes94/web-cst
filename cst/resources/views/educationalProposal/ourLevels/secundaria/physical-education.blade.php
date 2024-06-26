@@ -28,8 +28,8 @@
                     <li>de Fútbol Reducido, organizado para alumnos del ciclo básico, del ciclo superior y ex alumnos</li>
                     <li>Fiesta de Educación Física</li>
                 </ul>
-                <p>Con la intención de consolidar y coronar el trabajo realizado durante las clases participamos en torneos y competencias intercolegiales organizados por el Departamento de Educación Física de nuestro Colegio y por  Instituciones Educativas de zona norte. Las alumnas de Gimnasia  Artística, Rítmica y Aeróbica participan, además,  en  jornadas, exhibiciones, actos y fiestas de nuestra escuela, desfiles y galas gimnásticas.</p>
-                <p>Las  actividades del departamento de Educación Física se realizan en las instalaciones del Colegio, del Club Municipalidad de Vicente López (VILO) y del Club Centro Galicia.</p>
+                <p>Con la intención de consolidar y coronar el trabajo realizado durante las clases participamos en torneos y competencias intercolegiales organizados por el Departamento de Educación Física de nuestro Colegio y por Instituciones Educativas de zona norte. Las alumnas de Gimnasia Artística, Rítmica y Aeróbica participan, además, en jornadas, exhibiciones, actos y fiestas de nuestra escuela, desfiles y galas gimnásticas.</p>
+                <p>Las actividades del departamento de Educación Física se realizan en las instalaciones del Colegio, del Club Municipalidad de Vicente López (VILO) y del Club Centro Galicia.</p>
             </div>
         </section>
     </div>
@@ -37,6 +37,15 @@
 </div>
 
 </div>
+@if($latestPosts->isNotEmpty())
+@component('_components.blog-block', [
+'title' => 'Últimas Novedades ',
+'highlight' => '- Nivel Secundaria',
+'latestPosts' => $latestPosts,
+'route' => route('all-posts-primaria'),
+'text'=>'Ver todas las novedades de Secundaria'])
+@endcomponent
+@endif
 @endsection
 
 @section('styles')

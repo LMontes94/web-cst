@@ -84,21 +84,16 @@
     </div>
 
 </div>
-<div class="w3l-blog-block-5 py-5" id="blog">
-    <div class="container py-md-5 py-4">
-        <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
-            <h3 class="title-style">Últimas Novedades - Nivel Inicial</h3>
-        </div>
-        <div class="row justify-content-center">
-            @foreach($latestPosts as $post)
-            @include('_components.card-article', ['post' => $post])
-            @endforeach
-        </div>
-        <div class="text-center mt-4">
-            <a href="{{ route('all-posts') }}" class="btn btn-primary">Ver todas las novedades</a>
-        </div>
-    </div>
-</div>
+@if($latestPosts->isNotEmpty())
+@component('_components.blog-block', [
+'title' => 'Últimas Novedades ',
+'highlight' => '- Nivel Inicial',
+'latestPosts' => $latestPosts,
+'route' => route('all-posts-inicial'),
+'text'=>'Ver todas las novedades de Inicial'])
+@endcomponent
+@endif
+
 @endsection
 
 @section('styles')

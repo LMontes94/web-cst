@@ -74,7 +74,8 @@
                     <li><a href="https://www.colegiosteresita.edu.ar/admin/upload/docs/TRIPTICO con orientaciones Sec2018.pdf">
                             <h2 class="titulo-documento">Orientaciones del Nivel Secundario</h2>
                         </a>
-
+                    </li>
+                </ul>
         </section>
     </div>
 </div>
@@ -82,6 +83,15 @@
 </div>
 
 </div>
+@if($latestPosts->isNotEmpty())
+@component('_components.blog-block', [
+'title' => 'Últimas Novedades ',
+'highlight' => '- Nivel Secundaria',
+'latestPosts' => $latestPosts,
+'route' => route('all-posts-secundaria'),
+'text'=>'Ver todas las novedades de Secundaria'])
+@endcomponent
+@endif
 @endsection
 
 @section('styles')
