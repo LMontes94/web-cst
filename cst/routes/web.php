@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainController::class, 'index'])->name('index');
 Route::get('/contact', [MainController::class, 'contact'])->name('contact');
+Route::post('/contact', [MainController::class, 'store'])->name('send-email');
 Route::get('/admission', [MainController::class, 'admission'])->name('admission');
 Route::get('/all-posts', [MainController::class, 'allPosts'])->name('all-posts');
 Route::get('/all-posts/inicial', [InicialController::class, 'allPosts'])->name('all-posts-inicial');

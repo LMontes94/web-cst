@@ -14,9 +14,25 @@
         <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
             <h3 class="title-style">Formulario de Contacto</h3>
         </div>
+        @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>¡Mensaje Enviado!</strong> {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="row contact-block">
             <div class="col-md-7 contact-right">
-                <form action="https://sendmail.w3layouts.com/submitForm" method="post" class="signin-form">
+                <form action="{{ route('send-email') }}" method="post" class="signin-form">
+                    @csrf
                     <div class="input-grids">
                         <div class="row">
                             <div class="col-sm-6">
@@ -29,17 +45,8 @@
                                 <input type="email" name="email" id="email" placeholder="Email" class="contact-input" required="" />
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" name="telefeno" id="telefono" placeholder="Teléfono" class="contact-input" required="" />
+                                <input type="text" name="telefono" id="telefono" placeholder="Teléfono" class="contact-input" required="" />
                             </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <select class="form-select" aria-label="select example">
-                                <option value="0">- Destinatario -</option>
-                                <option value="34">Buffet</option>
-                                <option value="1">Contacto</option>
-                                <option value="35">Pastoral</option>
-                                <option value="21">Soporte Web</option>
-                            </select>
                         </div>
                     </div>
                     <div class="form-input">
@@ -50,6 +57,7 @@
                     </div>
                 </form>
             </div>
+            
             <div class="col-md-5 ps-lg-5 mt-md-0 mt-5">
                 <div class="contact-left">
                     <div class="cont-details">

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EmailRequest;
+use App\Mail\ContactFormMail;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class MainController extends Controller
 {
@@ -31,5 +34,17 @@ class MainController extends Controller
     {
         $post = Post::with(['user', 'imagePosts', 'documentPosts', 'videoPosts'])->findOrFail($id);
         return view('posts.show', compact('post'));
+    }
+
+    public function store(EmailRequest $request){
+        $details = [
+            'name' => $request->name,
+            'apellido' => $request->apellido,
+            'email' => $request->email,
+            'telefono' => $request->telefono,
+            'message' => $request->message,
+        ];
+        Mail::to('soporte@colegiosteresita.edu.ar')->send(new ContactFormMail($details));
+        return redirect()->back()->with('success', '¡Gracias por contactarnos! Tu mensaje ha sido enviado correctamente.');
     }
 }
