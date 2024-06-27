@@ -99,4 +99,5 @@
 @section('styles')
 <link rel="stylesheet" href="{{asset('assets/css/style-staff.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/style-letter.css')}}">
+<link rel="stylesheet" href="{{asset('assets/css/style-custom.css')}}">
 @endsection
