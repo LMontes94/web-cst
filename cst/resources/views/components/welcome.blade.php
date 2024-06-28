@@ -19,11 +19,11 @@
                 </div>
                 <div class="py-12 px-6">
                     <div class="flex flex-wrap justify-around gap-6 max-w-7xl mx-auto sm:px-6 lg:px-8">
-                            <x-card title="Usuarios" borderColor="primary" icon="user" count="10" />
-                            <x-card title="Secciones" borderColor="primary" icon="fa-solid fa-layer-group" count="5" />
-                            <x-card title="Departamentos" borderColor="primary" icon="fa-solid fa-building" count="3" />
-                            <x-card title="Pub Tipos" borderColor="primary" icon="fa-solid fa-file-alt" count="4" />
-                            <x-card title="Publicaciones" borderColor="success" icon="fa-solid fa-file-alt" count="20" />
+                        <x-card title="Usuarios" borderColor="primary" icon="user" count="{{ $userCount }}" />
+                        <x-card title="Secciones" borderColor="primary" icon="fa-solid fa-layer-group" count="{{ $sectionCount }}" />
+                        <x-card title="Departamentos" borderColor="primary" icon="fa-solid fa-building" count="{{ $departmentCount }}" />
+                        <x-card title="Pub Tipos" borderColor="primary" icon="fa-solid fa-file-alt" count="{{ $pubTypeCount }}" />
+                        <x-card title="Publicaciones" borderColor="success" icon="fa-solid fa-file-alt" count="{{ $publicationCount }}" />
                     </div>
                 </div>
             </div>

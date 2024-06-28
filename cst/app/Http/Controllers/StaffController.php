@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Staff;
 use App\Models\StaffPosition;
+use App\Traits\RecordsUserActivity;
 use Illuminate\Http\Request;
 use App\Helpers\Dropdown;
 use App\Http\Requests\StaffRequest;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Storage;
 
 class StaffController extends Controller
 {
+    use RecordsUserActivity;
     public $dropdowns;
     public function __construct()
     {
@@ -67,7 +69,7 @@ class StaffController extends Controller
         }
         $staff->save();
         $staff->staffPositions()->sync($request->positions);
-
+        $this->recordActivity('Creo un nuevo empleado', 'Personal: ' . $staff->name);
         return redirect()->route('staff.index')->with('success', 'Staff created successfully.');
     }
 
@@ -140,12 +142,13 @@ class StaffController extends Controller
         }
         $staff->save();
         $staff->staffPositions()->sync($request->positions);
-
+        $this->recordActivity('Se edito un empleado', 'Personal: ' . $staff->name);
         return redirect()->route('staff.index')->with('success', 'Staff updated successfully.');
     }
 
     public function destroy(Staff $staff)
     {
+        $this->recordActivity('Se elimino un empleado', 'Personal: ' . $staff->name);
         $staff->delete();
         return redirect()->route('staff.index')->with('success', 'Staff deleted successfully.');
     }

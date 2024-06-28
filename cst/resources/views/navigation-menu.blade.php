@@ -18,7 +18,7 @@
                     <x-nav-link href="{{ route('abms') }}" :active="request()->routeIs('dashboard')">
                         {{ __('ABMs') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('ejemplo') }}" :active="request()->routeIs('dashboard')">
+                    <x-nav-link href="{{ route('operaciones') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Operaciones') }}
                     </x-nav-link>
                 </div>
@@ -148,8 +148,8 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link href="{{ route('ejemplo') }}" :active="request()->routeIs('Ejemplo')">
-                {{ __('Ejemplo') }}
+            <x-responsive-nav-link href="{{ route('operaciones') }}" :active="request()->routeIs('Ejemplo')">
+                {{ __('Operaciones') }}
             </x-responsive-nav-link>
         </div>
 

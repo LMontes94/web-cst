@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\StaffPosition;
+use App\Traits\RecordsUserActivity;
 use Illuminate\Http\Request;
 use App\Helpers\Dropdown;
 
 class StaffPositionController extends Controller
 {
+    use RecordsUserActivity;
     public $dropdowns;
     public function __construct()
     {
@@ -38,7 +40,7 @@ class StaffPositionController extends Controller
         ]);
 
         $position->save();
-
+        $this->recordActivity('Se creo un nuevo cargo', 'Cargo: ' . $position->name);
         return redirect()->route('staff_positions.index')->with('success', 'Position created successfully.');
     }
 
@@ -59,12 +61,13 @@ class StaffPositionController extends Controller
         $request->validate(['name' => 'required|string|max:255']);
 
         $staffPosition->update($request->only('name'));
-
+        $this->recordActivity('Se edito un nuevo cargo', 'Cargo: ' . $staffPosition->name);
         return redirect()->route('staff_positions.index')->with('success', 'Position updated successfully.');
     }
 
     public function destroy(StaffPosition $staffPosition)
     {
+        $this->recordActivity('Se elimino un nuevo cargo', 'Cargo: ' . $staffPosition->name);
         $staffPosition->delete();
         return redirect()->route('staff_positions.index')->with('success', 'Position deleted successfully.');
     }

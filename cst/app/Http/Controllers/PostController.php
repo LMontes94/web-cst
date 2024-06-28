@@ -7,6 +7,7 @@ use App\Http\Requests\PostRequest;
 use App\Models\Department;
 use App\Models\Post;
 use App\Models\PostType;
+use App\Traits\RecordsUserActivity;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +19,7 @@ use Intervention\Image\Drivers\Gd\Driver;
 
 class PostController extends Controller
 {
+    use RecordsUserActivity;
     public $dropdowns;
     public function __construct()
     {
@@ -130,7 +132,7 @@ class PostController extends Controller
                 $post->videoPosts()->create(['url_video' => $filename, 'state' => 1]);
             }
         }
-
+        $this->recordActivity('Creo un nuevo posteo', 'Posteo: ' . $post->title);
         return redirect()->route('posts.index')->with('success', 'Post created successfully.');
     }
 
@@ -247,7 +249,7 @@ class PostController extends Controller
                 $post->videoPosts()->create(['url_video' => $filename, 'state' => 1]);
             }
         }
-
+        $this->recordActivity('Edito un posteo', 'Posteo: ' . $post->title);
         return redirect()->route('posts.index')->with('success', 'Post updated successfully.');
     }
 
@@ -258,7 +260,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $post->delete();
+        $this->recordActivity('Elimino', 'Posteo: ' . $post->title);
+        $post->delete();        
         return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
     }
 }

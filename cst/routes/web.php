@@ -67,7 +67,8 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-    Route::get('dashboard/ejemplo', [DashboardController::class, 'ejemplo'])->name('ejemplo');
+    Route::get('dashboard/operaciones', [DashboardController::class, 'operacion'])->name('operaciones');
+    Route::get('dashboard/operaciones/activities', [DashboardController::class, 'activity'])->name('activities');
     Route::get('dashboard/abms', [DashboardController::class, 'abms'])->name('abms');
 
     Route::resource('/users', UsersController::class);

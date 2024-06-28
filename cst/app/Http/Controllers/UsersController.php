@@ -7,9 +7,11 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Helpers\Dropdown;
 use App\Models\UserType;
+use App\Traits\RecordsUserActivity;
 
 class UsersController extends Controller
 {
+    use RecordsUserActivity;
     public $dropdowns;
     public function __construct()
     {
@@ -23,6 +25,7 @@ class UsersController extends Controller
         $userTypes = \App\Models\UserType::all()->pluck('name', 'id');
         $users = User::all();
         $dropdowns = $this->dropdowns;
+        
         return view('users.index', compact('users', 'dropdowns', 'userTypes'));
     }
 
@@ -37,6 +40,7 @@ class UsersController extends Controller
             ['name' => 'name', 'label' => 'Name', 'type' => 'text'],
             ['name' => 'email', 'label' => 'Email', 'type' => 'email'],
             ['name' => 'password', 'label' => 'Password', 'type' => 'password'],
+            ['name' => 'password_confirmation', 'label' => 'Confirm Password', 'type' => 'password'],
             ['name' => 'user_type_id', 'label' => 'User Type', 'type' => 'select', 'options' => $userTypes],
         ];
 
@@ -51,10 +55,13 @@ class UsersController extends Controller
     {
         $user = new User([
             'name'=> $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
             'user_type_id' => $request->user_type_id,
         ]);
         $user->save();
         $dropdowns = $this->dropdowns;
+        $this->recordActivity('Creo un nuevo usuario', 'Usuario: ' . $user->name);
         return redirect()->route('users.index', compact('user', 'dropdowns'));
     }
 
@@ -110,7 +117,7 @@ class UsersController extends Controller
             'password' => $request->password ? bcrypt($request->password) : $user->password,
             'user_type_id' => $request->user_type_id,
         ]);
-
+        $this->recordActivity('Editó un usuario', 'Usuario: ' . $user->name);
         return redirect()->route('users.index')->with('success', 'User updated successfully.');
     }
 
@@ -121,6 +128,7 @@ class UsersController extends Controller
     {
         $user->delete();
         $dropdowns = $this->dropdowns;
+        $this->recordActivity('Elimino un usuario', 'Usuario: ' . $user->name);
         return redirect()->route('users.index', compact('user', 'dropdowns'));
     }
 }

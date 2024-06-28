@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\PostType;
+use App\Traits\RecordsUserActivity;
 use Illuminate\Http\Request;
 use App\Helpers\Dropdown;
 
 class PostsTypeController extends Controller
 {
+    use RecordsUserActivity;
     public $dropdowns;
     public function __construct()
     {
@@ -47,7 +49,7 @@ class PostsTypeController extends Controller
             'state' => 1, // Asignando el valor 1 a la propiedad state
         ]);
         $postType->save();
-
+        $this->recordActivity('Creo un nuevo tipo de posteo', 'Tipo de posteo: ' . $postType->name);
         return redirect()->route('postType.index')->with('success', 'Post Type created successfully.');
     }
 
@@ -81,7 +83,7 @@ class PostsTypeController extends Controller
         $postType->update([
             'name' => $request->name,
         ]);
-
+        $this->recordActivity('Se edito un tipo de posteo', 'Tipo de posteo: ' . $postType->name);
         return redirect()->route('postType.index')->with('success', 'Post Type updated successfully.');
     }
 
@@ -90,6 +92,7 @@ class PostsTypeController extends Controller
      */
     public function destroy(PostType $postType)
     {
+        $this->recordActivity('Se elimino un tipo de posteo', 'Tipo de posteo: ' . $postType->name);
         $postType->delete();
 
         return redirect()->route('userType.index')->with('success', 'Post Type deleted successfully.');

@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Helpers\Dropdown;
 use App\Models\Department;
 use App\Models\Section;
+use App\Traits\RecordsUserActivity;
 use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
 {
+    use RecordsUserActivity;
     public $dropdowns;
     public function __construct()
     {
@@ -53,7 +55,7 @@ class DepartmentController extends Controller
             'state' => 1
         ]);
         $department->save();
-
+        $this->recordActivity('Creó un departamento', 'Departamento: ' . $department->name);
         return redirect()->route('department.index')->with('success', 'Department created successfully.');
     }
 
@@ -103,6 +105,7 @@ class DepartmentController extends Controller
             'name' => $request->name,
             'section_id' => $request->section_id,
         ]);
+        $this->recordActivity('Editó un departamento', 'Departamento: ' . $department->name);
         return redirect()->route('department.index')->with('success', 'Department updated successfully.');
     }
 
@@ -112,6 +115,7 @@ class DepartmentController extends Controller
     public function destroy(Department $department)
     {
         $department->delete();
+        $this->recordActivity('Eliminó un departamento', 'Departamento: ' . $department->name);
         return redirect()->route('department.index')->with('success', 'Department deleted successfully.');
     }
 }

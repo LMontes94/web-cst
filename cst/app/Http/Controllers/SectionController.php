@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Dropdown;
 use App\Models\Section;
+use App\Traits\RecordsUserActivity;
 use Illuminate\Http\Request;
 
 class SectionController extends Controller
 {
+    use RecordsUserActivity;
     public $dropdowns;
     public function __construct()
     {
@@ -46,7 +48,7 @@ class SectionController extends Controller
             'state' => 1,
         ]);
         $section->save();
-
+        $this->recordActivity('Creo una nueva seccion', 'Seccion: ' . $section->name);
         return redirect()->route('sections.index')->with('success', 'Seccion created successfully.');
     
     }
@@ -76,7 +78,7 @@ class SectionController extends Controller
     {
         $request->validate(['name' => 'required|string|max:255']);
         $section->update($request->only('name'));
-
+        $this->recordActivity('Edito una seccion', 'Seccion: ' . $section->name);
         return redirect()->route('sections.index')->with('success', 'Section updated successfully.');
     }
 
@@ -85,6 +87,7 @@ class SectionController extends Controller
      */
     public function destroy(Section $section)
     {
+        $this->recordActivity('Se elimino la seccion', 'Seccion: ' . $section->name);
         $section->delete();
         return redirect()->route('sections.index')->with('success', 'Section deleted successfully.');
     }
