@@ -6,6 +6,8 @@ use App\Models\Department;
 use App\Models\Post;
 use App\Models\PostType;
 use App\Models\Section;
+use App\Models\Session;
+use App\Models\SessionLog;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -26,7 +28,7 @@ class DashboardController extends Controller
                 'title' => 'SESIONES',
                 'icon' => 'fas fa-fw fa-table',
                 'items' => [
-                    ['label' => 'Listado completo', 'link' => route('users.index')],
+                    ['label' => 'Listado completo', 'link' => route('sessions')],
                 ]
                 ],
         ];
@@ -52,5 +54,12 @@ class DashboardController extends Controller
     public function activity(){ 
         $dropdowns = $this->dropdowns; 
         return view('activity',compact('dropdowns'));
-      }
+    }
+
+    public function sessions()
+    {
+        $sessions = SessionLog::with('user')->paginate(10);
+        $dropdowns = $this->dropdowns; 
+        return view('sessions', compact('sessions','dropdowns'));
+    }
 }
