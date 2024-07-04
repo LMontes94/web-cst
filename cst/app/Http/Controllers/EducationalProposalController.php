@@ -25,4 +25,10 @@ class EducationalProposalController extends Controller
         $latestPosts = Post::latest()->take(3)->get();
         return view('educationalProposal.ateneo', compact('latestPosts'));
     }
+
+    public function pastoral()
+    {
+        $latestPosts = Post::latest()->take(3)->get();
+        return view('educationalProposal.pastoral', compact('latestPosts'));
+    }
 }

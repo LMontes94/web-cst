@@ -6,6 +6,7 @@ use App\Http\Requests\EmailRequest;
 use App\Mail\ContactFormMail;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class MainController extends Controller
@@ -36,7 +37,8 @@ class MainController extends Controller
         return view('posts.show', compact('post'));
     }
 
-    public function store(EmailRequest $request){
+    public function store(EmailRequest $request)
+    {
         $details = [
             'name' => $request->name,
             'apellido' => $request->apellido,
@@ -44,7 +46,13 @@ class MainController extends Controller
             'telefono' => $request->telefono,
             'message' => $request->message,
         ];
-        Mail::to('soporte@colegiosteresita.edu.ar')->send(new ContactFormMail($details));
-        return redirect()->back()->with('success', '¡Gracias por contactarnos! Tu mensaje ha sido enviado correctamente.');
+        try {
+            Mail::to('soporte@colegiosteresita.edu.ar')->send(new ContactFormMail($details));
+
+            return redirect()->back()->with('success', '¡Gracias por contactarnos! Tu mensaje ha sido enviado correctamente.');
+        } catch (\Exception $e) {
+            Log::error('Error al enviar correo electrónico: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.');
+        }
     }
 }

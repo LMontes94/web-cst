@@ -1,11 +1,11 @@
 @extends('layouts.landing')
 
 @section('content')
-@component('_components.inner-banner')   
- @slot('pageTitle','Contacto')
- @slot('link1Text','Home') 
- @slot('link1Url',route('index'))
- @slot('link2Text','Contacto')
+@component('_components.inner-banner')
+@slot('pageTitle','Contacto')
+@slot('link1Text','Home')
+@slot('link1Url',route('index'))
+@slot('link2Text','Contacto')
 
 @endcomponent
 <!-- contact block -->
@@ -15,16 +15,21 @@
             <h3 class="title-style">Formulario de Contacto</h3>
         </div>
         @if(session('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>¡Mensaje Enviado!</strong> {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>¡Mensaje Enviado!</strong> {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @elseif(session('error'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>¡Mensaje Enviado!</strong> {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         @endif
-        @if ($errors->any())
+        @if ($errors->any(session('success')))
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                <li>{{ $error }}</li>
                 @endforeach
             </ul>
         </div>
@@ -57,7 +62,7 @@
                     </div>
                 </form>
             </div>
-            
+
             <div class="col-md-5 ps-lg-5 mt-md-0 mt-5">
                 <div class="contact-left">
                     <div class="cont-details">

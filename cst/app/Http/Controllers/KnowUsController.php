@@ -49,4 +49,8 @@ class KnowUsController extends Controller
     {
         return view('knowUs.commitment');
     }
+    public function installations()
+    {
+        return view('knowUs.instalaciones');
+    }
 }

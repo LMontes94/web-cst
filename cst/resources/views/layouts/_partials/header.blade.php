@@ -13,13 +13,13 @@
                     <a class="dropdown-item" href="{{route('general-letter')}}">Carta de la directora general</a>
                     <a class="dropdown-item" href="{{route('definition')}}">Definición Institucional</a>
                     <a class="dropdown-item" href="{{route('history')}}">Historia</a>
-                    <a class="dropdown-item" href="about.php">Instalaciones</a>
+                    <a class="dropdown-item" href="{{route('installations')}}">Instalaciones</a>
                     @endcomponent
 
                     @component('_components.nav-item-dropdown', ['dropdownId' => 'propuestaDropdown', 'title' => 'Propuesta Educativa'])
                     <a class="dropdown-item" href="{{route('levels')}}">Nuestros Niveles</a>
                     <a class="dropdown-item" href="courses.php">Proyecto Educativo</a>
-                    <a class="dropdown-item" href="#">Pastoral</a>
+                    <a class="dropdown-item" href="{{route('pastoral')}}">Pastoral</a>
                     <a class="dropdown-item" href="{{route('english')}}">Inglés</a>
                     <a class="dropdown-item" href="{{route('ateneo')}}">Ateneo</a>
                     @endcomponent

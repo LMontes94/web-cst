@@ -32,9 +32,11 @@ Route::get('/knowus/general-letter', [KnowUsController::class, 'generalLetter'])
 Route::get('/knowus/definition', [KnowUsController::class, 'definition'])->name('definition');
 Route::get('/knowus/history', [KnowUsController::class, 'history'])->name('history');
 Route::get('/knowus/commitment', [KnowUsController::class, 'commitment'])->name('commitment');
+Route::get('/knowus/installations', [KnowUsController::class, 'installations'])->name('installations');
 
 Route::get('educational-proposal/english', [EducationalProposalController::class, 'english'])->name('english');
 Route::get('educational-proposal/ateneo', [EducationalProposalController::class, 'ateneo'])->name('ateneo');
+Route::get('educational-proposal/pastoral', [EducationalProposalController::class, 'pastoral'])->name('pastoral');
 
 Route::get('educational-proposal/our-levels', [EducationalProposalController::class, 'ourLevels'])->name('levels');
 Route::get('educational-proposal/our-levels/inicial', [InicialController::class, 'inicial'])->name('inicial');
