@@ -6,7 +6,7 @@ Author URL: http://w3layouts.com12
 <!-- banner section -->
 
 @section('content')
-<section id="home" class="w3l-banner py-5">
+<section id="home" class="w3l-banner py-5 seccion-fondo">
     <div class="banner-content">
         <div class="container py-4">
             <div class="row align-items-center pt-sm-5 pt-4">
@@ -32,11 +32,11 @@ Author URL: http://w3layouts.com12
         <div class="row pb-xl-5 align-items-center">
             <div class="col-lg-6 position-relative home-block-3-left pb-lg-0 pb-5">
                 <div class="position-relative">
-                    <img src="assets/images/img1.jpg" alt="" class="img-fluid radius-image">
+                    <img src="/assets/img/imagenSTeresita.jpg" alt="" class="img-fluid radius-image">
                 </div>
                 <div class="imginfo__box">
-                    <h6 class="imginfo__title">Nombre del sector de la img</h6>
-                    <p>Breve descrpcion<br> sit aspernatur aut odit aut fugit. </p>
+                    <h6 class="imginfo__title">Santa Teresita</h6>
+                    <p>"No te canses nunca de estar amando siempre" </p>
                 </div>
             </div>
             <div class="col-xl-5 col-lg-6 offset-xl-1 mt-lg-0 mt-5 pt-lg-0 pt-5">
@@ -63,7 +63,7 @@ Author URL: http://w3layouts.com12
 <div class="container-fluid">
     @include('_components.ourLevels')
     <div class="text-center mt-sm-5 mt-4 pt-sm-0 pt-1">
-        <a class="btn btn-primary mt-sm-3" href="{{route('levels')}}">
+        <a class="btn btn-primary" href="{{route('levels')}}">
             Mas info</a>
     </div>
 </div>

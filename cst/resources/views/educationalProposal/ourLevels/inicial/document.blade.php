@@ -2,6 +2,7 @@
 
 @section('content')
 @component('_components.inner-banner')
+@slot('backgroundImage','/assets/img/jardinppal.jpg')
 @slot('pageTitle','Documentos Inicial')
 @slot('link1Text','Nivel Inicial')
 @slot('link1Url',route('inicial'))

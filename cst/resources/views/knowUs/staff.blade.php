@@ -2,6 +2,7 @@
 
 @section('content')
 @component('_components.inner-banner')
+@slot('backgroundImage','/assets/img/colegio.jpg')
 @slot('pageTitle','Equipo Directivo')
 @slot('link1Text','Conocenos')
 @slot('link1Url',route('index'))
@@ -9,7 +10,7 @@
 @endcomponent
 
 <div class="container py-md-5 py-4">
-    <div class="title-main text-center mx-auto mb-md-5 mb-4" >
+    <div class="title-main text-center mx-auto mb-md-5 mb-4">
         <h3 class="title-style title-page">Equipo Directivo</h3>
     </div>
     <div class="container py-md-5 py-4">
@@ -21,7 +22,7 @@
                     <div class="container py-md-5 py-4">
                         <div class="row text-center left-side">
                             @foreach($staff as $member)
-                                @include('_components.card-staff', ['staff' => $member])
+                            @include('_components.card-staff', ['staff' => $member])
                             @endforeach
                         </div>
                     </div>
@@ -29,9 +30,9 @@
             </div>
         </div>
     </div>
-</div>   
 </div>
-</div>   
+</div>
+</div>
 
 @endsection
 

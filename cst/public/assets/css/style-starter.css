@@ -19656,6 +19656,9 @@ p.banner-sub {
     color: var(--primary-color);
 }
 
+.imginfo__box p {
+    font-size: 18px;
+}
 @media (max-width: 1199px) {
     .imginfo__box {
         right: 18px;
@@ -19875,7 +19878,7 @@ ul.rating-list li a.review-color {
 }
 
 .w3l-service-1 .content23-grid2 {
-    background: url("../images/bg2.jpg") no-repeat center;
+    background: url("../img/ateneo.jpg") no-repeat center;
     background-size: cover;
 }
 
@@ -20883,7 +20886,6 @@ p.copy-footer-29 a:hover {
 
 /* inner banner */
 .inner-banner {
-    background: url(../images/banner3.jpg) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;

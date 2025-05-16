@@ -8,7 +8,7 @@
                 </div>
             </div>
             @foreach ($dropdowns as $dropdown)
-                <livewire:dropdown :title="$dropdown['title']" :icon="$dropdown['icon']" :items="$dropdown['items']" wire:key="{{ $dropdown['title'] }}" />
+            <livewire:dropdown :title="$dropdown['title']" :icon="$dropdown['icon']" :items="$dropdown['items']" wire:key="{{ $dropdown['title'] }}" />
             @endforeach
         </div>
     </div>

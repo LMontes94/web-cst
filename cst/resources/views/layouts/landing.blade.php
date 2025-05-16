@@ -32,6 +32,7 @@
     <script src="{{asset('assets/js/navFixed.js')}}"></script>
     <script src="{{asset('assets/js/blockScroll.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/js/carrousel.js')}}"></script>
     @yield('scripts')
 </body>
 

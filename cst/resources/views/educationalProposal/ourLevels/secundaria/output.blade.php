@@ -2,6 +2,7 @@
 
 @section('content')
 @component('_components.inner-banner')
+@slot('backgroundImage','/assets/img/secundariappal.jpg')
 @slot('pageTitle','Salidas y viajes de estudio')
 @slot('link1Text','Nivel Secundario')
 @slot('link1Url',route('secundaria'))

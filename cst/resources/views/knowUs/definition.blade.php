@@ -1,11 +1,12 @@
 @extends('layouts.landing')
 
 @section('content')
-@component('_components.inner-banner')   
- @slot('pageTitle','Definición Institucional')
- @slot('link1Text','Conocenos') 
- @slot('link1Url',route('index'))
- @slot('link2Text','Institución')
+@component('_components.inner-banner')
+@slot('backgroundImage','/assets/img/colegio.jpg')
+@slot('pageTitle','Definición Institucional')
+@slot('link1Text','Conocenos')
+@slot('link1Url',route('index'))
+@slot('link2Text','Institución')
 
 @endcomponent
 <div class="container py-md-5 py-4">
@@ -13,7 +14,7 @@
         <h3 class="title-style title-page">Definición Institucional</h3>
     </div>
     <div class="container py-md-5 py-4">
-        <div class="row">       
+        <div class="row">
             @include('layouts._partials.menus.left-menu-about')
             <!-- Columna derecha -->
             <div class="col-md-7">
@@ -25,7 +26,7 @@
                             Creamos las condiciones para que todo nuestros alumnos gocen de trayectorias educativas
                             cuidadas que respeten sus ritmos y necesidades, donde se les brinden contenidos significativos,
                             que puedan aprender disfrutando del conocimiento y que logren aplicar lo aprendido a nuevas
-                                situaciones.
+                            situaciones.
                             Arbitramos todos los medios para que nuestros egresados sean personas críticas, humildes,
                             respetuosas, solidarias; que cuenten con todas las herramientas necesarias para poder
                             desenvolverse en un mundo tan cambiante como en el que vivimos hoy.
@@ -43,7 +44,7 @@
                         </ul>
                     </div>
                 </section>
-            </div>    
+            </div>
         </div>
     </div>
 </div>

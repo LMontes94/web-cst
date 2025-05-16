@@ -13,7 +13,6 @@
                     <a class="dropdown-item" href="{{route('general-letter')}}">Carta de la directora general</a>
                     <a class="dropdown-item" href="{{route('definition')}}">Definición Institucional</a>
                     <a class="dropdown-item" href="{{route('history')}}">Historia</a>
-                    <a class="dropdown-item" href="{{route('installations')}}">Instalaciones</a>
                     @endcomponent
 
                     @component('_components.nav-item-dropdown', ['dropdownId' => 'propuestaDropdown', 'title' => 'Propuesta Educativa'])
@@ -25,7 +24,7 @@
                     @endcomponent
 
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('admission') }}">Postulaciones 2025</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('admission') }}">Postulaciones 2026</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('contact') }}">Contacto</a>

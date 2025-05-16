@@ -2,6 +2,7 @@
 
 @section('content')
 @component('_components.inner-banner')
+@slot('backgroundImage','/assets/img/colegio.jpg')
 @slot('pageTitle','Carta de la Directora General')
 @slot('link1Text','Conocenos')
 @slot('link1Url',route('index'))
@@ -20,14 +21,14 @@
                 <section class="w3l-team-13 py-5" id="team">
                     <div class="container py-md-5 py-4">
                         <div class="row text-left left-side">
-                                <div class="image-one text-center">
-                                    @if($directorGeneral)
-                                    @include('_components.card-staff', ['staff' => $directorGeneral])
-                                    @endif
-                                </div>
+                            <div class="image-one text-center">
+                                @if($directorGeneral)
+                                @include('_components.card-staff', ['staff' => $directorGeneral])
+                                @endif
+                            </div>
                         </div>
                         <h6>Querida comunidad educativa:</h6>
-                        <p>     
+                        <p>
                             Santa Teresita nos encomendó “trabajar constantemente y dejar que Dios se ocupe del éxito de
                             la tarea”. Bajo esta premisa hemos desarrollado un proyecto educativo en el cual la educación
                             es considerada como un proceso global: no solamente nos esforzamos por ofrecer una educación

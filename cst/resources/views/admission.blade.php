@@ -1,12 +1,13 @@
 @extends('layouts.landing')
 
 @section('content')
-  @component('_components.inner-banner')   
-    @slot('pageTitle','Postulaciones')
-    @slot('link1Text','Home') 
-    @slot('link1Url', route('index'))
-    @slot('link2Text','Admisiones')
-  @endcomponent
+@component('_components.inner-banner')
+@slot('backgroundImage','/assets/img/colegio.jpg')
+@slot('pageTitle','Postulaciones')
+@slot('link1Text','Home')
+@slot('link1Url', route('index'))
+@slot('link2Text','Admisiones')
+@endcomponent
 
 <div class="container py-md-5 py-4">
     <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
@@ -17,7 +18,7 @@
     <div class="col-md-7">
         <div class="row">
             <div class="col-lg-11 mt-lg-0 mt-55">
-                <h4 class="title-style">Postulaciones 2025</h4>
+                <h4 class="title-style">Postulaciones 2026</h4>
                 <p class="mt-4">Están abiertas las postulaciones para el Ciclo Lectivo 2025.
                     Para comenzar con el proceso de admisión, por favor completá el formulario
                     correspondiente a cada nivel:</p>

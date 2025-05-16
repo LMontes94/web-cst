@@ -2,6 +2,7 @@
 
 @section('content')
 @component('_components.inner-banner')
+@slot('backgroundImage','/assets/img/secundariappal.jpg')
 @slot('pageTitle','Talleres de cuidado de la vida')
 @slot('link1Text','Nivel Secundario')
 @slot('link1Url',route('secundaria'))

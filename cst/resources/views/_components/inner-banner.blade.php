@@ -1,5 +1,5 @@
 <!-- inner banner -->
-<section class="inner-banner py-5">
+<section class="inner-banner py-5 " style=" background-image: url('{{ asset($backgroundImage) }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="w3l-breadcrumb py-lg-5">
         <div class="container pt-4 pb-sm-4">
             <div class="row align-items-center justify-content-between">

@@ -1,11 +1,12 @@
 @extends('layouts.landing')
 
 @section('content')
-@component('_components.inner-banner')   
- @slot('pageTitle','Historia')
- @slot('link1Text','Conocenos') 
- @slot('link1Url',route('index'))
- @slot('link2Text','Historia')
+@component('_components.inner-banner')
+@slot('backgroundImage','/assets/img/colegio.jpg')
+@slot('pageTitle','Historia')
+@slot('link1Text','Conocenos')
+@slot('link1Url',route('index'))
+@slot('link2Text','Historia')
 
 @endcomponent
 <div class="container py-md-5 py-4">
@@ -47,7 +48,7 @@
                                 <li><strong>2001</strong> Polimodal en Comunicación, Arte y Diseño; Economía y Gestión de las Organizaciones
                                     y Ciencias Naturales</li>
                                 <li><strong>2004</strong> Comienzo de la primera escuela de inglés en nivel primario “Litlle Flowers School of
-                                        English”.</li>
+                                    English”.</li>
                                 <li><strong>2006</strong> Transformación Ley Nacional de Educación: Bachilleratos en Economía y
                                     Administración, Ciencias Naturales y Comunicación.</li>
                                 <li><strong>2006</strong> Comienzo del Plan de estudios Institucional Bilingüe de Doble Jornada.</li>
@@ -57,7 +58,7 @@
                         </div>
                     </div>
                 </section>
-            </div>    
+            </div>
         </div>
     </div>
 </div>

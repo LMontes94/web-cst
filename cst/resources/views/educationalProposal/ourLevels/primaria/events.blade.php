@@ -2,6 +2,7 @@
 
 @section('content')
 @component('_components.inner-banner')
+@slot('backgroundImage','/assets/img/primariappal.jpg')
 @slot('pageTitle','Eventos y salidas')
 @slot('link1Text','Nivel Primario')
 @slot('link1Url',route('primaria'))

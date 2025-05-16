@@ -2,6 +2,7 @@
 
 @section('content')
 @component('_components.inner-banner')
+@slot('backgroundImage','/assets/img/colegio.jpg')
 @slot('pageTitle','Inglés')
 @slot('link1Text','Propuesta Educativa')
 @slot('link1Url',route('index'))

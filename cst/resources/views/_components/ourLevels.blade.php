@@ -1,12 +1,12 @@
 <div class="w3l-grids-block-5 home-course-bg py-5" id="courses">
     <div class="container py-md-5 py-4">
-        <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+        <div class="title-main text-center mx-auto mb-md-5" style="max-width:500px;">
             <h3 class="title-style">Nuestros Niveles</h3>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6">
                 @component('_components.coursecard-single', [
-                'image' => 'assets/images/c1.jpg',
+                'image' => '/assets/img/inicialpresentacion.jpg',
                 'route' => route('inicial'),
                 'class' => '',
                 'level' => 'Inicial',
@@ -17,7 +17,7 @@
             </div>
             <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
                 @component('_components.coursecard-single', [
-                'image' => 'assets/images/c2.jpg',
+                'image' => '/assets/img/primariapresentacion.jpg',
                 'route' => route('primaria'),
                 'class' => 'sec-2',
                 'level' => 'Primaria',
@@ -28,7 +28,7 @@
             </div>
             <div class="col-lg-4 col-md-6 mt-lg-0 mt-4">
                 @component('_components.coursecard-single', [
-                'image' => 'assets/images/c3.jpg',
+                'image' => '/assets/img/secundariapresentacion.jpg',
                 'route' => route('secundaria'),
                 'class' => 'sec-3',
                 'level' => 'Secundaria',
